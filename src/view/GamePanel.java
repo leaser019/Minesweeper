@@ -5,44 +5,25 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel {
-    private JPanel panelLeft, panelRight, panelMid, panelHead, panelPlay;
-    private JLabel labelLeft, labelRight;
+    private JPanel panelPlay;
     private JButton[][] playGround;
-    private JButton smile;
+    private PanelHeader header;
 
     public GamePanel(int width, int height, int boom_num) {
         this.init(width, height);
         this.setLayout(new BorderLayout());
-        this.add(panelHead, BorderLayout.NORTH);
         this.add(panelPlay, BorderLayout.CENTER);
-        this.modHeadPanel();
+        this.add(header,BorderLayout.NORTH);
         this.modPlayGround(width, height);
     }
 
     private void init(int width, int height) {
         playGround = new JButton[width][height];
-        panelHead = new JPanel();
-        panelMid = new JPanel();
-        panelLeft = new JPanel();
-        panelRight = new JPanel();
         panelPlay = new JPanel();
-    }
-
-    private void modHeadPanel() {
-        panelHead.setLayout(new BorderLayout());
-        panelHead.add(panelLeft, BorderLayout.EAST);
-        panelHead.add(panelRight, BorderLayout.WEST);
-        panelHead.add(panelMid, BorderLayout.CENTER);
-        labelLeft = new JLabel("Time");
-        labelRight = new JLabel("Boom_Num");
-        smile = new JButton("Icon");
-        panelLeft.add(labelLeft);
-        panelRight.add(labelRight);
-        panelMid.add(smile);
+        header = new PanelHeader(this);
     }
 
     private void modPlayGround(int width, int height) {
