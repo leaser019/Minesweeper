@@ -6,6 +6,7 @@ import model.LoadData;
 public class GameFrame extends JFrame {
     private LoadData data;
     private GamePanel panel;
+    private int width = 500, height = 500;
 
     public GameFrame() {
         this.pack();
@@ -16,12 +17,12 @@ public class GameFrame extends JFrame {
         this.setLocationRelativeTo(null);
         this.setIconImage(data.getListImage().get("icon"));
         this.setTitle("Minesweeper");
-        this.setSize(500, 500);
+        this.setSize(width, height);
         this.add(panel);
     }
 
     private void init() {
         data = new LoadData();
-        panel = new GamePanel(10,10,3);
+        panel = new GamePanel(10, 10, 3);
     }
 }
