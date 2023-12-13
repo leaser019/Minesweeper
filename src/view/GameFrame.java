@@ -16,6 +16,7 @@ public class GameFrame extends JFrame {
         this.setResizable(true);
         this.setLocationRelativeTo(null);
         this.setIconImage(data.getListImage().get("icon"));
+        this.setResizable(false);
         this.setTitle("Minesweeper");
         this.setSize(width, height);
         this.add(panel);
