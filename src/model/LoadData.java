@@ -18,6 +18,8 @@ public class LoadData {
             listImage.put("empty", image.getSubimage(0, 38, 17, 17));
             listImage.put("flag", image.getSubimage(15, 39, 17, 17));
 
+            listImage.put("smile", image.getSubimage(0, 55, 26, 26));
+
             listImage.put("empty_play_ground", image.getSubimage(0, 22, 17, 17));
             listImage.put("one_play_ground", image.getSubimage(16, 24, 17, 17));
             listImage.put("two_play_ground", image.getSubimage(0, 0, 17, 17));
