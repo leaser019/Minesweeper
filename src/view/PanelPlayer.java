@@ -29,11 +29,11 @@ public class PanelPlayer extends JPanel {
 		}
 	}
 
-	public ButtonPlay[][] getArrayButton() {
+	public Button[][] getArrayButton() {
 		return arrayButton;
 	}
 
-	public void setArrayButton(ButtonPlay[][] arrayButton) {
+	public void setArrayButton(Button[][] arrayButton) {
 		this.arrayButton = arrayButton;
 	}
 

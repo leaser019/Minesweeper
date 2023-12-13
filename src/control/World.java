@@ -10,12 +10,15 @@ public class World {
     private Button[][] arrayButton;
     private int[][] arrayMin; //boom la so 10
 
+    private boolean[][] arrayButton;
+
     private ButtonSmile buttonSmile;
     private LableNumber lbTime, lbBoom;
 
     public World(int w, int h, int boom){
         arrayButton = new Button[w][h];
         arrayMin = new int[w][h];
+        arrayBoolean = new boolean[w][h];
         
         rd = new Random();
 
@@ -27,6 +30,24 @@ public class World {
                 System.out.println(arrayMin[i][j] + " ");
             }
             System.out.println();
+        }
+    }
+
+    public boolean open(int i, int j){
+        if(!arrayBoolean[i][j]) {
+            arrayBoolean[i][j] = true;
+
+
+        }
+        int number = arrayMin[i][j];
+
+        if(number != 10){
+            arrayButton[i][j] = setNumber(number);
+            arrayButton[i][j] = repaint();
+            
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -72,6 +93,16 @@ public class World {
             }
         }
 
+    }
+
+    public void fullTrue(){
+        for(int i = 0; i < arrayBoolean.length; i++){
+            for(int j = 0; j < arrayBoolean[i].length; j++){
+                if(!arrayBoolean[i][j]){
+                    arrayBoolean[i][j] = true;
+                }
+            }
+        }
     }
 
     public Button[][] getArrayButton(){
