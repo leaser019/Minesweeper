@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 public class PanelHeader extends JPanel {
     private GamePanel game;
     private JPanel panelLeft, panelRight, panelCenter;
-    private JLabel labelLeft, labelRight;
+    private Number labelLeft, labelRight;
     private SmileButton icon;
 
     public PanelHeader(GamePanel game) {
@@ -23,16 +23,16 @@ public class PanelHeader extends JPanel {
     }
 
     private void init() {
-        
         this.setLayout(new BorderLayout());
+        BorderLayout layout = (BorderLayout) this.getLayout();
+        layout.setVgap(160);
         panelLeft = new JPanel();
         panelRight = new JPanel();
         panelCenter = new JPanel();
 
-        labelLeft = new JLabel("Score");
-        labelRight = new JLabel("Boom_num");
+        labelLeft = new Number(this, "000");
+        labelRight = new Number(this, "000");
         icon = new SmileButton(this);
-
     }
 
     public GamePanel getGame() {

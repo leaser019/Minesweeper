@@ -10,7 +10,7 @@ public class SmileButton extends JButton {
 
     public SmileButton(PanelHeader gp) {
         this.gp = gp;
-        this.setPreferredSize(new Dimension(50, 50));
+        this.setPreferredSize(new Dimension(45, 45));
     }
 
     @Override

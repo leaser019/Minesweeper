@@ -10,7 +10,7 @@ public class Button extends JButton {
 
     public Button(GamePanel game) {
         this.game = game;
-        this.setPreferredSize(new Dimension(48,48));
+        this.setPreferredSize(new Dimension(47,47));
     }
 
     @Override
