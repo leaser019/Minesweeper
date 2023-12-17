@@ -2,16 +2,30 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 import javax.swing.JPanel;
 
 import model.LoadData;
 
-public class GamePanel extends JPanel {
+import control.World;
+
+public class GamePanel extends JPanel implements MouseListener {
     private JPanel panelPlay;
     private Button[][] playGround;
     private PanelHeader header;
     private LoadData data;
+
+    private PanelNotification p1;
+    private PanelPlayer p2;
+    private GameFrame gameFrame;
+
+    private World world;
+     
+    private int weight;
+    private int height;
 
     public GamePanel(int width, int height, int boom_num) {
         this.init(width, height);
@@ -44,5 +58,26 @@ public class GamePanel extends JPanel {
 
     public void setData(LoadData data) {
         this.data = data;
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        //Auto-generated method stub 
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e){
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e){
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e){
     }
 }
