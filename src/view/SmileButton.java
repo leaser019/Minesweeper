@@ -6,8 +6,6 @@ import java.awt.Graphics;
 import javax.swing.JButton;
 
 public class SmileButton extends JButton {
-    public static Object now;
-    protected static Object press;
     private PanelHeader gp;
 
     public SmileButton(PanelHeader gp) {

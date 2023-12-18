@@ -5,9 +5,11 @@ import model.LoadData;
 
 public class GameFrame extends JFrame {
     private LoadData data;
-    public GameFrame(int width, int height, int boom_num) {
-        data = new LoadData();
-        this.pack();
+    private GamePanel panel;
+    private int width = 500, height = 500;
+
+    public GameFrame() {
+        // this.pack();
         this.init();
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -17,18 +19,11 @@ public class GameFrame extends JFrame {
         this.setResizable(false);
         this.setTitle("Minesweeper");
         this.setSize(width, height);
-        add(new GamePanel(width, height, boom_num, this));
-    }
-
-    public GameFrame() {
+        this.add(panel);
     }
 
     private void init() {
         data = new LoadData();
-        new GamePanel(10, 10, 3, null);
-    }
-
-    public static void main (String[] args){
-        new GameFrame();
+        panel = new GamePanel(10, 10, 3);
     }
 }
