@@ -1,6 +1,8 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
+
 import javax.swing.JPanel;
 
 public class PanelHeader extends JPanel {
@@ -40,5 +42,16 @@ public class PanelHeader extends JPanel {
 
     public void setGame(GamePanel game) {
         this.game = game;
+    }
+
+    public void updateLableLeft() {
+    }
+
+    public Object getTime() {
+        return null;
+    }
+
+    public Component getIcon() {
+        return null;
     }
 }

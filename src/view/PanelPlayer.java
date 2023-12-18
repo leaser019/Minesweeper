@@ -16,7 +16,7 @@ public class PanelPlayer extends JPanel {
 	public PanelPlayer(GamePanel game) {
 		this.game = game;
 
-		setLayout(new GridLayout(game.getW(), game.getH()));
+		setLayout(new GridLayout(game.getWidth(), game.getHeight()));
 
 		arrayButton = game.getWorld().getArrayButton();
 

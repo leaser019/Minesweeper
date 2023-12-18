@@ -5,10 +5,8 @@ import model.LoadData;
 
 public class GameFrame extends JFrame {
     private LoadData data;
-    private GamePanel panel;
-    private int width = 500, height = 500;
-
-    public GameFrame() {
+    public GameFrame(int width, int height, int boom_num) {
+        data = new LoadData();
         // this.pack();
         this.init();
         this.setVisible(true);
@@ -19,11 +17,14 @@ public class GameFrame extends JFrame {
         this.setResizable(false);
         this.setTitle("Minesweeper");
         this.setSize(width, height);
-        this.add(panel);
+        add(new GamePanel(width, height, boom_num, this));
+    }
+
+    public GameFrame() {
     }
 
     private void init() {
         data = new LoadData();
-        panel = new GamePanel(10, 10, 3);
+        new GamePanel(10, 10, 3, null);
     }
 }
