@@ -2,13 +2,14 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.MouseListener;
 
 import javax.swing.JPanel;
 
 import model.LoadData;
 
-public class GamePanel extends JPanel {
-    private JPanel panelPlay;
+public class GamePanel extends JPanel implements MouseListener {
+    private JPanel panelPlay; //
     private Button[][] playGround;
     private PanelHeader header;
     private LoadData data;
