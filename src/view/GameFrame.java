@@ -9,13 +9,14 @@ public class GameFrame extends JFrame {
     private int width = 500, height = 500;
 
     public GameFrame() {
-        this.pack();
+        // this.pack();
         this.init();
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(true);
         this.setLocationRelativeTo(null);
         this.setIconImage(data.getListImage().get("icon"));
+        this.setResizable(false);
         this.setTitle("Minesweeper");
         this.setSize(width, height);
         this.add(panel);

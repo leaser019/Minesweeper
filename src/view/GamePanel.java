@@ -36,10 +36,10 @@ public class GamePanel extends JPanel implements MouseListener {
     }
 
     private void init(int width, int height) {
+        header = new PanelHeader(this);
         playGround = new Button[width][height];
         data = new LoadData();
         panelPlay = new JPanel();
-        header = new PanelHeader(this);
     }
 
     private void modPlayGround(int width, int height) {

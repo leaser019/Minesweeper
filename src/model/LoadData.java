@@ -15,28 +15,32 @@ public class LoadData {
             BufferedImage icon = ImageIO.read(new File("img//icon.png"));
             listImage.put("icon", icon);
             BufferedImage image = ImageIO.read(new File("img//minesweeper.png"));
-            listImage.put("empty", image.getSubimage(0, 38, 17, 17));
+            listImage.put("empty", image.getSubimage(0, 39, 17, 17));
             listImage.put("flag", image.getSubimage(15, 39, 17, 17));
 
-            listImage.put("empty_play_ground", image.getSubimage(0, 22, 17, 17));
-            listImage.put("one_play_ground", image.getSubimage(16, 24, 17, 17));
-            listImage.put("two_play_ground", image.getSubimage(0, 0, 17, 17));
-            // listImage.put("three_play_ground", image.getSubimage(0, 0, 17, 17));
-            // listImage.put("four_play_ground", image.getSubimage(0, 0, 17, 17));
-            // listImage.put("five_play_ground", image.getSubimage(0, 0, 17, 17));
-            // listImage.put("six_play_ground", image.getSubimage(0, 0, 17, 17));
-            // listImage.put("seven_play_ground", image.getSubimage(0, 0, 17, 17));
-            // listImage.put("eight_play_ground", image.getSubimage(0, 0, 17, 17));
+            listImage.put("smile", image.getSubimage(0, 55, 26, 26));
 
-            // listImage.put("zero_score", image.getSubimage(0, 0, 0, 0));
-            // listImage.put("one_score", image.getSubimage(0, 0, 0, 0));
-            // listImage.put("two_score", image.getSubimage(0, 0, 0, 0));
-            // listImage.put("three_score", image.getSubimage(0, 0, 0, 0));
-            // listImage.put("four_score", image.getSubimage(0, 0, 0, 0));
-            // listImage.put("five_score", image.getSubimage(0, 0, 0, 0));
-            // listImage.put("six_score", image.getSubimage(0, 0, 0, 0));
-            // listImage.put("seven_score", image.getSubimage(0, 0, 0, 0));
-            // listImage.put("eight_score", image.getSubimage(0, 0, 0, 0));
+            listImage.put("empty_play_ground", image.getSubimage(0, 23, 17, 17));
+            listImage.put("one_play_ground", image.getSubimage(16, 23, 17, 17));
+            listImage.put("two_play_ground", image.getSubimage(32, 0, 17, 17));
+            listImage.put("three_play_ground", image.getSubimage(48, 0, 17, 17));
+            listImage.put("four_play_ground", image.getSubimage(64, 0, 17, 17));
+            listImage.put("five_play_ground", image.getSubimage(80, 0, 17, 17));
+            listImage.put("six_play_ground", image.getSubimage(96, 0, 17, 17));
+            listImage.put("seven_play_ground", image.getSubimage(112, 0, 17, 17));
+            listImage.put("eight_play_ground", image.getSubimage(128, 0, 17, 17));
+
+            listImage.put("0", image.getSubimage(0, 0, 13, 23));
+            listImage.put("1", image.getSubimage(13, 0, 13, 23));
+            listImage.put("2", image.getSubimage(26, 0, 13, 23));
+            listImage.put("3", image.getSubimage(39, 0, 13, 23));
+            listImage.put("4", image.getSubimage(52, 0, 13, 23));
+            listImage.put("5", image.getSubimage(65, 0, 13, 23));
+            listImage.put("6", image.getSubimage(78, 0, 13, 23));
+            listImage.put("7", image.getSubimage(91, 0, 13, 23));
+            listImage.put("8", image.getSubimage(104, 0, 13, 23));
+            listImage.put("9", image.getSubimage(117, 0, 13, 23));
+            listImage.put("infi", image.getSubimage(130, 0, 13, 23));
 
         } catch (Exception e) {
             e.printStackTrace();
