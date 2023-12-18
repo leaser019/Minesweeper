@@ -2,19 +2,22 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+<<<<<<< HEAD
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+=======
+
+>>>>>>> parent of d007d43 (Merge pull request #1 from leaser019/trongnguyen)
 import javax.swing.JPanel;
 
 import model.LoadData;
 
-import control.World;
-
-public class GamePanel extends JPanel implements MouseListener {
+public class GamePanel extends JPanel {
     private JPanel panelPlay;
     private Button[][] playGround;
     private PanelHeader header;
     private LoadData data;
+<<<<<<< HEAD
     private int boom_num;
     private GameFrame gameFrame;
 
@@ -24,6 +27,10 @@ public class GamePanel extends JPanel implements MouseListener {
     private int height;
 
     public GamePanel(int width, int height, int boom_num, GameFrame gameFrame2) {
+=======
+
+    public GamePanel(int width, int height, int boom_num) {
+>>>>>>> parent of d007d43 (Merge pull request #1 from leaser019/trongnguyen)
         this.init(width, height);
         this.setLayout(new BorderLayout());
         this.add(panelPlay, BorderLayout.CENTER);
@@ -57,6 +64,7 @@ public class GamePanel extends JPanel implements MouseListener {
     public void setData(LoadData data) {
         this.data = data;
     }
+<<<<<<< HEAD
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -144,4 +152,6 @@ public class GamePanel extends JPanel implements MouseListener {
     }
 
    
+=======
+>>>>>>> parent of d007d43 (Merge pull request #1 from leaser019/trongnguyen)
 }
