@@ -9,9 +9,9 @@ public class Button extends JButton {
     private GamePanel game;
     private int number;
 
-    public Button(GamePanel game) {
+    public Button(GamePanel gamePanel) {
         number = -1;
-        this.game = game;
+        this.game = gamePanel;
         this.setPreferredSize(new Dimension(47,47));
     }
 
@@ -22,7 +22,7 @@ public class Button extends JButton {
     public void paintComponent(Graphics g) {
         switch (number){
             case -1:
-                g.drawImage(game.getData().getListImage().get("flag"), 0, 0, this.getPreferredSize().width,
+                g.drawImage(game.getData().getListImage().get("empty"), 0, 0, this.getPreferredSize().width,
                 this.getPreferredSize().height, null);
                 break;
             case 0:

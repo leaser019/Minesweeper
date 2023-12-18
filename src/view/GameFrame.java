@@ -7,7 +7,7 @@ public class GameFrame extends JFrame {
     private LoadData data;
     public GameFrame(int width, int height, int boom_num) {
         data = new LoadData();
-        // this.pack();
+        this.pack();
         this.init();
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,5 +26,9 @@ public class GameFrame extends JFrame {
     private void init() {
         data = new LoadData();
         new GamePanel(10, 10, 3, null);
+    }
+
+    public static void main (String[] args){
+        new GameFrame();
     }
 }
