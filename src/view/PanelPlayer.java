@@ -49,4 +49,8 @@ public class PanelPlayer extends JPanel {
         return null;
     }
 
+	public int getFlag() {
+		return 0;
+	}
+
 }

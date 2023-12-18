@@ -1,11 +1,10 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-
 import javax.swing.JPanel;
 
 import model.LoadData;
@@ -24,6 +23,7 @@ public class GamePanel extends JPanel implements MouseListener {
      
     private int weight;
     private int height;
+    public Object getHeader;
 
     public GamePanel(int width, int height, int boom_num, GameFrame gameFrame2) {
         this.init(width, height);
@@ -85,5 +85,13 @@ public class GamePanel extends JPanel implements MouseListener {
 
     public Object getHeader() {
         return null;
+    }
+
+    public Component getGameFrame() {
+        return null;
+    }
+
+    public int getBoom_num() {
+        return 0;
     }
 }
