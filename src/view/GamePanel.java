@@ -16,14 +16,13 @@ public class GamePanel extends JPanel implements MouseListener {
     private Button[][] playGround;
     private PanelHeader header;
     private LoadData data;
-
+    private int boom_num;
     private GameFrame gameFrame;
 
     private World world;
      
     private int weight;
     private int height;
-    public Object getHeader;
 
     public GamePanel(int width, int height, int boom_num, GameFrame gameFrame2) {
         this.init(width, height);
@@ -31,6 +30,7 @@ public class GamePanel extends JPanel implements MouseListener {
         this.add(panelPlay, BorderLayout.CENTER);
         this.add(header, BorderLayout.NORTH);
         this.modPlayGround(width, height);
+        this.boom_num = boom_num;
     }
 
     private void init(int width, int height) {
@@ -38,6 +38,7 @@ public class GamePanel extends JPanel implements MouseListener {
         playGround = new Button[width][height];
         data = new LoadData();
         panelPlay = new JPanel();
+        world = new World(gameFrame.getWidth(),gameFrame.getHeight(),boom_num,this);
     }
 
     private void modPlayGround(int width, int height) {
@@ -79,19 +80,69 @@ public class GamePanel extends JPanel implements MouseListener {
     public void mouseExited(MouseEvent e){
     }
 
-    public PanelPlayer getWorld() {
-        return null;
+    public JPanel getPanelPlay() {
+        return panelPlay;
     }
 
-    public Object getHeader() {
-        return null;
+    public void setPanelPlay(JPanel panelPlay) {
+        this.panelPlay = panelPlay;
     }
 
-    public Component getGameFrame() {
-        return null;
+    public Button[][] getPlayGround() {
+        return playGround;
+    }
+
+    public void setPlayGround(Button[][] playGround) {
+        this.playGround = playGround;
+    }
+
+    public PanelHeader getHeader() {
+        return header;
+    }
+
+    public void setHeader(PanelHeader header) {
+        this.header = header;
     }
 
     public int getBoom_num() {
-        return 0;
+        return boom_num;
     }
+
+    public void setBoom_num(int boom_num) {
+        this.boom_num = boom_num;
+    }
+
+    public GameFrame getGameFrame() {
+        return gameFrame;
+    }
+
+    public void setGameFrame(GameFrame gameFrame) {
+        this.gameFrame = gameFrame;
+    }
+
+    public World getWorld() {
+        return world;
+    }
+
+    public void setWorld(World world) {
+        this.world = world;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+   
 }

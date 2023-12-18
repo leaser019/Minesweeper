@@ -92,7 +92,7 @@ public class World {
                 arrayFlag[i][j] = false;
                 arrayButton[i][j].setNumber(-1);
                 arrayButton[i][j].repaint();
-                game.getHeader.updateLableLeft();
+                game.getHeader().updateLableLeft();
             } else if(flag < boom_num){
                 flag++;
                 arrayFlag[i][j] = true;

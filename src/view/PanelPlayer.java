@@ -44,13 +44,4 @@ public class PanelPlayer extends JPanel {
 	public void setGame(GamePanel game) {
 		this.game = game;
 	}
-
-    public Object getData() {
-        return null;
-    }
-
-	public int getFlag() {
-		return 0;
-	}
-
 }

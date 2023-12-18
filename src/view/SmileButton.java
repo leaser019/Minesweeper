@@ -20,7 +20,4 @@ public class SmileButton extends JButton {
         g.drawImage(gp.getGame().getData().getListImage().get("smile"), 0, 0, getPreferredSize().width,
                 getPreferredSize().height, null);
     }
-
-    public void setStage(Object now2) {
-    }
 }

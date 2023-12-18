@@ -44,7 +44,7 @@ public class PanelHeader extends JPanel {
         icon.addMouseListener(new MouseListener() {
             @Override
             public void mouseReleased(MouseEvent e){
-                icon.setStage(SmileButton.now);
+                // icon.setStage(SmileButton.now);
                 icon.repaint();
 
                 int option = JOptionPane.showConfirmDialog(null, "Are you play new game?", "Notification",
@@ -127,4 +127,57 @@ public class PanelHeader extends JPanel {
     public Component getIcon() {
         return null;
     }
+
+    public JPanel getPanelLeft() {
+        return panelLeft;
+    }
+
+    public void setPanelLeft(JPanel panelLeft) {
+        this.panelLeft = panelLeft;
+    }
+
+    public JPanel getPanelRight() {
+        return panelRight;
+    }
+
+    public void setPanelRight(JPanel panelRight) {
+        this.panelRight = panelRight;
+    }
+
+    public JPanel getPanelCenter() {
+        return panelCenter;
+    }
+
+    public void setPanelCenter(JPanel panelCenter) {
+        this.panelCenter = panelCenter;
+    }
+
+    public Number getLabelLeft() {
+        return labelLeft;
+    }
+
+    public void setLabelLeft(Number labelLeft) {
+        this.labelLeft = labelLeft;
+    }
+
+    public Number getLabelRight() {
+        return labelRight;
+    }
+
+    public void setLabelRight(Number labelRight) {
+        this.labelRight = labelRight;
+    }
+
+    public void setIcon(SmileButton icon) {
+        this.icon = icon;
+    }
+
+    public int getNowTime() {
+        return nowTime;
+    }
+
+    public void setNowTime(int nowTime) {
+        this.nowTime = nowTime;
+    }
+    
 }
