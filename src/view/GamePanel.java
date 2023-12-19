@@ -12,7 +12,7 @@ import Control.World;
 import model.LoadData;
 
 public class GamePanel extends JPanel implements MouseListener {
-    private JPanel panelPlay;
+    private PlayGround panelPlay;
     private Button[][] arrayButton;
     private PanelHeader header;
     private LoadData data;
@@ -37,7 +37,7 @@ public class GamePanel extends JPanel implements MouseListener {
         header = new PanelHeader(this);
         arrayButton = new Button[width][height];
         data = new LoadData();
-        panelPlay = new JPanel();
+        panelPlay = new PlayGround(this);
     }
 
     private void modPlayGround(int width, int height) {
@@ -81,6 +81,7 @@ public class GamePanel extends JPanel implements MouseListener {
                 }
             }
         }
+
     }
 
     @Override
@@ -103,7 +104,7 @@ public class GamePanel extends JPanel implements MouseListener {
         this.world = world;
     }
 
-    public Object getGame() {
-        return null;
+    public GameFrame getGame() {
+        return gf;
     }
 }
