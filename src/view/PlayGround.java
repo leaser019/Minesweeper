@@ -1,10 +1,12 @@
 package view;
 
 import java.awt.GridLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JPanel;
 
-public class PlayGround extends JPanel {
+public class PlayGround extends JPanel implements MouseListener {
     private Button[][] arrayButton;
     private GamePanel gp;
     private int width;
@@ -13,7 +15,7 @@ public class PlayGround extends JPanel {
     public PlayGround(GamePanel gp) {
         this.gp = gp;
         this.init(gp.getWidth(), gp.getHeight());
-        this.modPlayGround(gp.getWidth(), gp.getHeight());
+        // this.modPlayGround(gp.getWidth(), gp.getHeight());
     }
 
     private void init(int width, int height) {
@@ -22,13 +24,34 @@ public class PlayGround extends JPanel {
         arrayButton = new Button[width][height];
     }
 
-    private void modPlayGround(int width, int height) {
-        this.setLayout(new GridLayout(10, 10));
-        for (int i = 0; i < arrayButton.length; i++) {
-            for (int j = 0; j < arrayButton[i].length; j++) {
-                arrayButton[i][j] = new Button(gp);
-                this.add(arrayButton[i][j]);
-            }
-        }
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mouseClicked'");
     }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mousePressed'");
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mouseReleased'");
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mouseEntered'");
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mouseExited'");
+    }
+    
 }
