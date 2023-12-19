@@ -1,119 +1,84 @@
 package Control;
+
 import view.Button;
 import java.util.Random;
 
 public class World {
-    private Button[][] arrayButton;
-    private int[][] arrayBoom;
     private Random rd;
-    private boolean[][] arrayBoolean;
+    private Button[][] arrayButton;
+    private int[][] arrayMin;
 
-    public World(int width, int height, int boom_num){
+    public World(int width, int height, int boom_num) {
         arrayButton = new Button[width][height];
-        arrayBoom = new int[width][height];
-        arrayBoolean = new boolean[width][height];
-
+        arrayMin = new int[width][height];
         rd = new Random();
 
-        createArrayBoom(width, height, boom_num);
+        createArrayMin(boom_num, width, height);
         System.out.println(boom_num);
-        fillNumber();
-        
-        for(int i = 0; i < arrayBoom.length; i++){
-            for(int j = 0; j < arrayBoom[i].length; j++){
-                System.out.println(arrayBoom[i][j] + " ");
+        for(int i = 0; i < arrayButton.length; i++){
+            for(int j = 0; j < arrayButton[i].length; j++){
+                System.out.println(arrayMin[i][j] + " ");
             }
             System.out.println();
         }
+        dienSo();
     }
 
-    public void fillNumber(){
-        for(int i = 0; i < arrayBoom.length; i++){
-            for(int j = 0; j < arrayBoom[i].length; j++){
-                if(arrayBoom[i][j] == 0){
+    public void open(int i, int j){
+        int number = arrayMin[i][j];
+        if(number != -1){
+            arrayButton[i][j].setNumber(number);
+            arrayButton[i][j].repaint();
+        }
+    }
+
+    public void createArrayMin(int boom_num, int width, int height){
+        int count  = 0;
+        while(count < boom_num){
+            int locationX = rd.nextInt(width);
+            int locationY = rd.nextInt(height);
+
+            if (arrayMin[locationX][locationY] != -1) {
+                arrayMin[locationX][locationY] = -1;
+                count++;
+            }
+    
+        }
+    }
+
+    public void dienSo(){
+        for(int i = 0; i < arrayMin.length; i++){
+            for(int j  = 0; j < arrayMin[i].length; j++){
+                if(arrayMin[i][j] == 0){
                     int count = 0;
                     for(int l = i - 1; l <= i + 1; l++){
                         for(int k = j - 1; k <= j + 1; k++){
-                            if(l >= 0 && l <= arrayBoom.length - 1 && k >= 0 && k <= arrayBoom[i].length - 1){
-                                if(arrayBoom[l][k] == -1){
-                                    count++;
-                                }
+                            if(l>=0 && l<=arrayMin.length-1 && k>=0 && k<=arrayMin[i].length-1)
+                            if(arrayMin[l][k] == -1){
+                                count++;
                             }
                         }
                     }
-                    arrayBoom[i][j] = count;
+                    arrayMin[i][j] = count;
                 }
             }
         }
     }
-
-    public boolean open(int i, int j){
-        if(!arrayBoolean[i][j]) {
-            arrayBoolean[i][j] = true;
-
-            int number = arrayBoom[i][j];
-            if(number != -1){
-                arrayButton[i][j].setNumber(number);
-                arrayButton[i][j].repaint();
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public void createArrayBoom(int boom_num, int width, int height){
-        int locationX = rd.nextInt(width);
-        int locationY = rd.nextInt(height);
-
-        arrayBoom[locationX][locationY] = -1;
-        int count = 1;
-        while (count != boom_num){
-            locationX = rd.nextInt(width);
-            locationY = rd.nextInt(height);
-            if(arrayBoom[locationX][locationY] != -1)
-                arrayBoom[locationX][locationY] = -1;
-                count = 0;
-            for(int i = 0; i < arrayBoom.length ;i++){
-                for(int j = 0; j < arrayBoom[i].length; j++){
-                    if(arrayBoom[i][j] == -1){
-                        count++;
-                    }
-                }
-            }
-        }
-    }
-
-    public void fullTrue(){
-        for(int i = 0; i < arrayBoolean.length; i++){
-            for(int j = 0; j < arrayBoolean[i].length; j++){
-                if(!arrayBoolean[i][j]){
-                    arrayBoolean[i][j] = true;
-                }
-            }
-        }
-    }
-    public Button[][] getPlayGround() {
-        return arrayButton;
-    }
-    public void setArrayButton(Button[][] playGround) {
-        this.arrayButton = playGround;
-    }
-    public int[][] getArrayBoom() {
-        return arrayBoom;
-    }
-    public void setArrayBoom(int[][] arrayBoom) {
-        this.arrayBoom = arrayBoom;
-    }
-
     public Button[][] getArrayButton() {
         return arrayButton;
     }
 
-    public Random getRd() {
-        return rd;
+    public void setArrayButton(Button[][] arrayButton) {
+        this.arrayButton = arrayButton;
     }
 
-    public void setRd(Random rd) {
-        this.rd = rd;
+    public int[][] getArrayMin() {
+        return arrayMin;
     }
+
+    public void setArrayMin(int[][] arrayMin) {
+        this.arrayMin = arrayMin;
+    }
+
+    
 }

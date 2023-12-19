@@ -1,17 +1,15 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Control.World;
 import model.LoadData;
 
-public class GamePanel extends JPanel implements MouseListener {
+public class GamePanel extends JPanel implements MouseListener{
     private PlayGround panelPlay;
     private Button[][] arrayButton;
     private PanelHeader header;
@@ -26,29 +24,23 @@ public class GamePanel extends JPanel implements MouseListener {
 
     public GamePanel(int width, int height, int boom_num, GameFrame gf) {
         this.gf = gf;
-        this.init(width, height, boom_num);
+        this.width = width;
+        this.height = height;
+        this.boom_num = boom_num;
+        this.init();
         this.setLayout(new BorderLayout());
         this.add(panelPlay, BorderLayout.CENTER);
         this.add(header, BorderLayout.NORTH);
-        this.modPlayGround(width, height);
+        arrayButton = new Button[width][height];
     }
 
-    private void init(int width, int height, int boom_num) {
+    private void init() {
         header = new PanelHeader(this);
         arrayButton = new Button[width][height];
         data = new LoadData();
         panelPlay = new PlayGround(this);
     }
 
-    private void modPlayGround(int width, int height) {
-        panelPlay.setLayout(new GridLayout(width, height));
-        for (int i = 0; i < arrayButton.length; i++) {
-            for (int j = 0; j < arrayButton[i].length; j++) {
-                arrayButton[i][j] = new Button(this);
-                panelPlay.add(arrayButton[i][j]);
-            }
-        }
-    }
 
     public LoadData getData() {
         return data;
@@ -58,30 +50,24 @@ public class GamePanel extends JPanel implements MouseListener {
         this.data = data;
     }
 
+    public World getWorld(){
+        return world;
+    }
+
+    public void setWorld(World world){
+        this.world = world;
+    }
+
+    public GameFrame getGame() {
+        return gf;
+    }
+
     @Override
     public void mouseClicked(MouseEvent e) {
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        Button[][] arrayButton = header.getArrayButton();
-        for(int i = 0; i < arrayButton.length; i++){
-            for(int j = 0; j < arrayButton[i].length; j++){
-                if(e.getButton() == 1 && e.getSource() == arrayButton[i][j]){
-                    if(!world.open(i, j)){
-                        int option = JOptionPane.showConfirmDialog(this, "Are you play again?","Notification", 
-                        JOptionPane.YES_NO_OPTION);
-                        if(option == JOptionPane.YES_OPTION){
-                            gf.setVisible(false);
-                            new GameFrame(width, height, boom_num);
-                        } else {
-                            world.fullTrue();
-                        }
-                    }
-                }
-            }
-        }
-
     }
 
     @Override
@@ -96,15 +82,61 @@ public class GamePanel extends JPanel implements MouseListener {
     public void mouseExited(MouseEvent e) {
     }
 
-    public World getWorld(){
-        return world;
+    public PlayGround getPanelPlay() {
+        return panelPlay;
     }
 
-    public void setWorld(World world){
-        this.world = world;
+    public void setPanelPlay(PlayGround panelPlay) {
+        this.panelPlay = panelPlay;
     }
 
-    public GameFrame getGame() {
+    public Button[][] getArrayButton() {
+        return arrayButton;
+    }
+
+    public void setArrayButton(Button[][] arrayButton) {
+        this.arrayButton = arrayButton;
+    }
+
+    public PanelHeader getHeader() {
+        return header;
+    }
+
+    public void setHeader(PanelHeader header) {
+        this.header = header;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public int getBoom_num() {
+        return boom_num;
+    }
+
+    public void setBoom_num(int boom_num) {
+        this.boom_num = boom_num;
+    }
+
+    public GameFrame getGf() {
         return gf;
     }
+
+    public void setGf(GameFrame gf) {
+        this.gf = gf;
+    }
+
+    
 }

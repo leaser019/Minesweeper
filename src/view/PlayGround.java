@@ -6,52 +6,85 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JPanel;
 
+import Control.World;
+import model.LoadData;
+
 public class PlayGround extends JPanel implements MouseListener {
+    private World world;
     private Button[][] arrayButton;
-    private GamePanel gp;
-    private int width;
-    private int height;
+    private GamePanel panel;
+    private LoadData data;
 
-    public PlayGround(GamePanel gp) {
-        this.gp = gp;
-        this.init(gp.getWidth(), gp.getHeight());
-        // this.modPlayGround(gp.getWidth(), gp.getHeight());
+    public PlayGround(GamePanel panel) {
+        this.panel = panel;
+        this.world = panel.getWorld();
+        this.data = panel.getData();
+        this.arrayButton = new Button[panel.getWidth()][panel.getHeight()];
+        this.setLayout(new GridLayout(panel.getWidth(), panel.getHeight()));
+        for(int i = 0; i < arrayButton.length; i++){
+            for(int j = 0; j < arrayButton[i].length; j++){
+                arrayButton[i][j] = new Button(i, j, panel);
+                arrayButton[i][j].addMouseListener(this);
+                this.add(arrayButton[i][j]);
+            }
+        }
     }
 
-    private void init(int width, int height) {
-        this.width = gp.getGame().getWidth();
-        this.height = gp.getGame().getHeight();
-        arrayButton = new Button[width][height];
-    }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mouseClicked'");
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mousePressed'");
+        Button[][] arrayButton = this.getArrayButton();
+        for(int i = 0; i < arrayButton.length; i++){
+            for(int j = 0; j < arrayButton[i].length; j++){
+                if(e.getButton() == 1 && e.getSource() == arrayButton[i][j]){
+                    world.open(i, j);
+                }
+            }
+        }
+        
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mouseReleased'");
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mouseEntered'");
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mouseExited'");
     }
-    
+
+    public Button[][] getArrayButton() {
+        return arrayButton;
+    }
+
+    public void setArrayButton(Button[][] arrayButton) {
+        this.arrayButton = arrayButton;
+    }
+
+    public void updateArrayButton(){
+        arrayButton = panel.getArrayButton();
+    }
+
+    public LoadData getData(){
+        return data;
+    }
+
+    public World getWorld() {
+        return world;
+    }
+
+    public void setWorld(World world) {
+        this.world = world;
+    }
+
+    public void setData(LoadData data) {
+        this.data = data;
+    }
 }
