@@ -8,6 +8,7 @@ public class PanelHeader extends JPanel {
     private JPanel panelLeft, panelRight, panelCenter;
     private Number labelLeft, labelRight;
     private SmileButton icon;
+    private Button[][] arrayButton;
 
     public PanelHeader(GamePanel game) {
         this.game = game;
@@ -40,5 +41,60 @@ public class PanelHeader extends JPanel {
 
     public void setGame(GamePanel game) {
         this.game = game;
+    }
+
+    public JPanel getPanelLeft() {
+        return panelLeft;
+    }
+
+    public void setPanelLeft(JPanel panelLeft) {
+        this.panelLeft = panelLeft;
+    }
+
+    public JPanel getPanelRight() {
+        return panelRight;
+    }
+
+    public void setPanelRight(JPanel panelRight) {
+        this.panelRight = panelRight;
+    }
+
+    public JPanel getPanelCenter() {
+        return panelCenter;
+    }
+
+    public void setPanelCenter(JPanel panelCenter) {
+        this.panelCenter = panelCenter;
+    }
+
+    public Number getLabelLeft() {
+        return labelLeft;
+    }
+
+    public void setLabelLeft(Number labelLeft) {
+        this.labelLeft = labelLeft;
+    }
+
+    public Number getLabelRight() {
+        return labelRight;
+    }
+
+    public void setLabelRight(Number labelRight) {
+        this.labelRight = labelRight;
+    }
+
+    public SmileButton getIcon() {
+        return icon;
+    }
+
+    public void setIcon(SmileButton icon) {
+        this.icon = icon;
+    }
+    public Button[][] getArrayButton() {
+        return arrayButton;
+    }
+
+    public void setArrayButton(Button[][] arrayButton) {
+        this.arrayButton = arrayButton;
     }
 }

@@ -6,9 +6,8 @@ import model.LoadData;
 public class GameFrame extends JFrame {
     private LoadData data;
     private GamePanel panel;
-    private int width = 500, height = 500;
 
-    public GameFrame() {
+    public GameFrame(int width, int height, int boom_num) {
         this.pack();
         this.init();
         this.setVisible(true);
@@ -24,6 +23,24 @@ public class GameFrame extends JFrame {
 
     private void init() {
         data = new LoadData();
-        panel = new GamePanel(10, 10, 3);
+        panel = new GamePanel(10,10,3, this);
     }
+
+    public LoadData getData() {
+        return data;
+    }
+
+    public void setData(LoadData data) {
+        this.data = data;
+    }
+
+    public GamePanel getPanel() {
+        return panel;
+    }
+
+    public void setPanel(GamePanel panel) {
+        this.panel = panel;
+    }
+
+    
 }
