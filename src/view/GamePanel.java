@@ -32,7 +32,7 @@ public class GamePanel extends JPanel implements MouseListener{
         setLayout(new BorderLayout(20, 20));
         add(header = new PanelHeader(this), BorderLayout.NORTH);
         panelPlay = new PlayGround(this);
-        panelPlay.setArrayButton(new Button[height][width]);
+        add(panelPlay = new PlayGround(this), BorderLayout.CENTER);
     }
 
 
