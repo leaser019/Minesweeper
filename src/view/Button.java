@@ -2,87 +2,68 @@ package view;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
-
-import java.awt.image.BufferedImage;
 import javax.swing.JButton;
 
-import model.LoadData;
-
 public class Button extends JButton {
-    private GamePanel panel;
+    private static final long serialVersionUID = 1L;
+    private PlayGround p;
     private int number;
-    private int row;
-    private int column;
-    private LoadData data;
 
-    public Button(int row, int column, GamePanel panel) {
+    public Button(PlayGround p) {
         number = -1;
-        this.row = row;
-        this.column = column;
-        this.panel = panel;
+        this.p = p;
         this.setPreferredSize(new Dimension(47,47));
-        this.data = new LoadData();
     }
 
     @Override
-    public void paintComponent(Graphics g) {
-        BufferedImage image = getImageForNumber(number);
-        g.drawImage(image, 0, 0, this.getPreferredSize().width, this.getPreferredSize().height, null);
-    }
-
-    public void setNumber(int number){
-        this.number = number;
-    }
-
-    public int getRow(){
-        return row;
-    }
-
-    public int getColumn(){
-        return column;
-    }
-
-    public GamePanel gamePanel(){
-        return panel;
-    }
-
-    private BufferedImage getImageForNumber(int number){
-        String key;
+    public void paint(Graphics g){
         switch (number) {
             case -1:
-                key = "empty";
+                g.drawImage(p.getGp().getGf().getData().getListImage().get("smile"), 0, 0, 
+                    getPreferredSize().width, getPreferredSize().height, this);
                 break;
             case 0:
-                key = "empty_play_ground";
+                g.drawImage(p.getGp().getGf().getData().getListImage().get("empty_play_ground"), 0, 0, 
+                    getPreferredSize().width, getPreferredSize().height, this);
                 break;
             case 1:
-                key = "one_play_ground";
+                g.drawImage(p.getGp().getGf().getData().getListImage().get("one_play_ground"), 0, 0, 
+                    getPreferredSize().width, getPreferredSize().height, this);
                 break;
             case 2:
-                key = "two_play_ground";
+                g.drawImage(p.getGp().getGf().getData().getListImage().get("two_play_ground"), 0, 0, 
+                    getPreferredSize().width, getPreferredSize().height, this);
                 break;
             case 3:
-                key = "three_play_ground";
+                g.drawImage(p.getGp().getGf().getData().getListImage().get("three_play_ground"), 0, 0, 
+                    getPreferredSize().width, getPreferredSize().height, this);
                 break;
             case 4:
-                key = "four_play_ground";
+                g.drawImage(p.getGp().getGf().getData().getListImage().get("four_play_ground"), 0, 0, 
+                    getPreferredSize().width, getPreferredSize().height, this);
                 break;
             case 5:
-                key = "five_play_ground";
+                g.drawImage(p.getGp().getGf().getData().getListImage().get("five_play_ground"), 0, 0, 
+                    getPreferredSize().width, getPreferredSize().height, this);
                 break;
             case 6:
-                key = "six_play_ground";
+                g.drawImage(p.getGp().getGf().getData().getListImage().get("six_play_ground"), 0, 0, 
+                    getPreferredSize().width, getPreferredSize().height, this);
                 break;
             case 7:
-                key = "seven_play_ground";
+                g.drawImage(p.getGp().getGf().getData().getListImage().get("seven_play_ground"), 0, 0, 
+                    getPreferredSize().width, getPreferredSize().height, this);
                 break;
             case 8:
-                key = "eight_play_ground";
+                g.drawImage(p.getGp().getGf().getData().getListImage().get("eight_play_ground"), 0, 0, 
+                    getPreferredSize().width, getPreferredSize().height, this);
                 break;
             default:
-                key = "empty";
                 break;
-            }
-        return data.getListImage().get(key);
+        }
+    }
+
+    public void setNumber (int number){
+        this.number  = number;
     }
 }

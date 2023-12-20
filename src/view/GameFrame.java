@@ -11,20 +11,17 @@ public class GameFrame extends JFrame {
         panel = new GamePanel(width, height, boom_num, this);
         this.add(panel);
         this.init();
+        this.setIconImage(data.getListImage().get("icon"));
         this.setSize(width, height);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-        this.setIconImage(data.getListImage().get("icon"));
         this.setTitle("Minesweeper");
-        
-        
     }
 
     private void init() {
         data = new LoadData();
-        panel = new GamePanel(10,10,3, this);
     }
 
     public LoadData getData() {

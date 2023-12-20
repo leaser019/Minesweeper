@@ -79,6 +79,4 @@ public class World {
     public void setArrayMin(int[][] arrayMin) {
         this.arrayMin = arrayMin;
     }
-
-    
 }

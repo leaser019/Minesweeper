@@ -33,6 +33,8 @@ public class PanelHeader extends JPanel {
         labelLeft = new Number(this, "000");
         labelRight = new Number(this, "000");
         icon = new SmileButton(this);
+
+        arrayButton = game.getPanelPlay().getArrayButton();
     }
 
     public GamePanel getGame() {
