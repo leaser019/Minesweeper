@@ -30,9 +30,9 @@ public class GamePanel extends JPanel implements MouseListener{
 
         world = new World(width, height, boom_num);
         setLayout(new BorderLayout(20, 20));
-        add(header = new PanelHeader(this), BorderLayout.NORTH);
         panelPlay = new PlayGround(this);
-        add(panelPlay = new PlayGround(this), BorderLayout.CENTER);
+        add(header = new PanelHeader(this), BorderLayout.NORTH);
+        add(panelPlay, BorderLayout.CENTER);
     }
 
 
@@ -54,106 +54,85 @@ public class GamePanel extends JPanel implements MouseListener{
         }
     }
 
-
     @Override
     public void mouseReleased(MouseEvent e) {
     }
-
 
     @Override
     public void mouseEntered(MouseEvent e) {
     }
 
-
     @Override
     public void mouseExited(MouseEvent e) {
     }
-
 
     public Button[][] getArrayButton() {
         return arrayButton;
     }
 
-
     public void setArrayButton(Button[][] arrayButton) {
         this.arrayButton = arrayButton;
     }
-
 
     public PlayGround getPanelPlay() {
         return panelPlay;
     }
 
-
     public void setPanelPlay(PlayGround panelPlay) {
         this.panelPlay = panelPlay;
     }
-
 
     public PanelHeader getHeader() {
         return header;
     }
 
-
     public void setHeader(PanelHeader header) {
         this.header = header;
     }
-
 
     public LoadData getData() {
         return data;
     }
 
-
     public void setData(LoadData data) {
         this.data = data;
     }
-
 
     public World getWorld() {
         return world;
     }
 
-
     public void setWorld(World world) {
         this.world = world;
     }
-
 
     public int getWidth() {
         return width;
     }
 
-
     public void setWidth(int width) {
         this.width = width;
     }
-
 
     public int getHeight() {
         return height;
     }
 
-
     public void setHeight(int height) {
         this.height = height;
     }
-
 
     public int getBoom_num() {
         return boom_num;
     }
 
-
     public void setBoom_num(int boom_num) {
         this.boom_num = boom_num;
     }
 
-
     public GameFrame getGf() {
         return gf;
     }
-
 
     public void setGf(GameFrame gf) {
         this.gf = gf;

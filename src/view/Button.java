@@ -6,12 +6,12 @@ import javax.swing.JButton;
 
 public class Button extends JButton {
     private static final long serialVersionUID = 1L;
-    private PlayGround p;
+    private PlayGround panelPlay;
     private int number;
 
-    public Button(PlayGround p) {
+    public Button(PlayGround panelPlay) {
         number = -1;
-        this.p = p;
+        this.panelPlay = panelPlay;
         this.setPreferredSize(new Dimension(47,47));
     }
 
@@ -19,43 +19,43 @@ public class Button extends JButton {
     public void paint(Graphics g){
         switch (number) {
             case -1:
-                g.drawImage(p.getGp().getGf().getData().getListImage().get("smile"), 0, 0, 
+                g.drawImage(panelPlay.getGp().getGf().getData().getListImage().get("smile"), 0, 0, 
                     getPreferredSize().width, getPreferredSize().height, this);
                 break;
             case 0:
-                g.drawImage(p.getGp().getGf().getData().getListImage().get("empty_play_ground"), 0, 0, 
+                g.drawImage(panelPlay.getGp().getGf().getData().getListImage().get("empty_play_ground"), 0, 0, 
                     getPreferredSize().width, getPreferredSize().height, this);
                 break;
             case 1:
-                g.drawImage(p.getGp().getGf().getData().getListImage().get("one_play_ground"), 0, 0, 
+                g.drawImage(panelPlay.getGp().getGf().getData().getListImage().get("one_play_ground"), 0, 0, 
                     getPreferredSize().width, getPreferredSize().height, this);
                 break;
             case 2:
-                g.drawImage(p.getGp().getGf().getData().getListImage().get("two_play_ground"), 0, 0, 
+                g.drawImage(panelPlay.getGp().getGf().getData().getListImage().get("two_play_ground"), 0, 0, 
                     getPreferredSize().width, getPreferredSize().height, this);
                 break;
             case 3:
-                g.drawImage(p.getGp().getGf().getData().getListImage().get("three_play_ground"), 0, 0, 
+                g.drawImage(panelPlay.getGp().getGf().getData().getListImage().get("three_play_ground"), 0, 0, 
                     getPreferredSize().width, getPreferredSize().height, this);
                 break;
             case 4:
-                g.drawImage(p.getGp().getGf().getData().getListImage().get("four_play_ground"), 0, 0, 
+                g.drawImage(panelPlay.getGp().getGf().getData().getListImage().get("four_play_ground"), 0, 0, 
                     getPreferredSize().width, getPreferredSize().height, this);
                 break;
             case 5:
-                g.drawImage(p.getGp().getGf().getData().getListImage().get("five_play_ground"), 0, 0, 
+                g.drawImage(panelPlay.getGp().getGf().getData().getListImage().get("five_play_ground"), 0, 0, 
                     getPreferredSize().width, getPreferredSize().height, this);
                 break;
             case 6:
-                g.drawImage(p.getGp().getGf().getData().getListImage().get("six_play_ground"), 0, 0, 
+                g.drawImage(panelPlay.getGp().getGf().getData().getListImage().get("six_play_ground"), 0, 0, 
                     getPreferredSize().width, getPreferredSize().height, this);
                 break;
             case 7:
-                g.drawImage(p.getGp().getGf().getData().getListImage().get("seven_play_ground"), 0, 0, 
+                g.drawImage(panelPlay.getGp().getGf().getData().getListImage().get("seven_play_ground"), 0, 0, 
                     getPreferredSize().width, getPreferredSize().height, this);
                 break;
             case 8:
-                g.drawImage(p.getGp().getGf().getData().getListImage().get("eight_play_ground"), 0, 0, 
+                g.drawImage(panelPlay.getGp().getGf().getData().getListImage().get("eight_play_ground"), 0, 0, 
                     getPreferredSize().width, getPreferredSize().height, this);
                 break;
             default:

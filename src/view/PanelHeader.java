@@ -45,53 +45,6 @@ public class PanelHeader extends JPanel {
         this.game = game;
     }
 
-    public JPanel getPanelLeft() {
-        return panelLeft;
-    }
-
-    public void setPanelLeft(JPanel panelLeft) {
-        this.panelLeft = panelLeft;
-    }
-
-    public JPanel getPanelRight() {
-        return panelRight;
-    }
-
-    public void setPanelRight(JPanel panelRight) {
-        this.panelRight = panelRight;
-    }
-
-    public JPanel getPanelCenter() {
-        return panelCenter;
-    }
-
-    public void setPanelCenter(JPanel panelCenter) {
-        this.panelCenter = panelCenter;
-    }
-
-    public Number getLabelLeft() {
-        return labelLeft;
-    }
-
-    public void setLabelLeft(Number labelLeft) {
-        this.labelLeft = labelLeft;
-    }
-
-    public Number getLabelRight() {
-        return labelRight;
-    }
-
-    public void setLabelRight(Number labelRight) {
-        this.labelRight = labelRight;
-    }
-
-    public SmileButton getIcon() {
-        return icon;
-    }
-
-    public void setIcon(SmileButton icon) {
-        this.icon = icon;
-    }
     public Button[][] getArrayButton() {
         return arrayButton;
     }
