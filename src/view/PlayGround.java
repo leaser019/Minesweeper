@@ -11,12 +11,12 @@ public class PlayGround extends JPanel{
 
     public PlayGround(GamePanel gp){
         this.gp = gp;
-        arrayButton = new Button[gp.getWidth()][gp.getHeight()];
-        setLayout(new GridLayout(gp.getWidth(), gp.getHeight()));
+        arrayButton = gp.getArrayButton();
+        setLayout(new GridLayout(gp.getCols(), gp.getRows()));
         setBorder(BorderFactory.createLoweredBevelBorder());
 
-        for(int i = 0; i < gp.getHeight(); i++){
-            for(int j = 0; j < gp.getWidth(); j++){
+        for(int i = 0; i < gp.getRows(); i++){
+            for(int j = 0; j < gp.getCols(); j++){
                 arrayButton[i][j] = new Button(this);
                 arrayButton[i][j].addMouseListener(gp);
                 add(arrayButton[i][j]);

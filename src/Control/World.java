@@ -8,12 +8,12 @@ public class World {
     private Button[][] arrayButton;
     private int[][] arrayMin;
 
-    public World(int width, int height, int boom_num) {
-        arrayButton = new Button[width][height];
-        arrayMin = new int[width][height];
+    public World(int cols, int rows, int boom_num) {
+        arrayButton = new Button[cols][rows];
+        arrayMin = new int[cols][rows];
         rd = new Random();
 
-        createArrayMin(boom_num, width, height);
+        createArrayMin(boom_num, cols, rows);
         System.out.println(boom_num);
         for(int i = 0; i < arrayButton.length; i++){
             for(int j = 0; j < arrayButton[i].length; j++){
@@ -22,6 +22,13 @@ public class World {
             System.out.println();
         }
         dienSo();
+        System.out.println("Boom_num: " + boom_num);
+        for(int i = 0; i < arrayMin.length; i++){
+            for(int j = 0; j < arrayMin[i].length; j++){
+                System.out.println(arrayMin[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 
     public void open(int i, int j){

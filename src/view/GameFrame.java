@@ -8,11 +8,11 @@ public class GameFrame extends JFrame {
     private GamePanel panel;
 
     public GameFrame(int width, int height, int boom_num) {
+        this.init();
         panel = new GamePanel(width, height, boom_num, this);
         this.add(panel);
-        this.init();
         this.setIconImage(data.getListImage().get("icon"));
-        this.setSize(width, height);
+        this.setSize(width * 47, height * 47);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);

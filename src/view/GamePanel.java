@@ -19,16 +19,22 @@ public class GamePanel extends JPanel implements MouseListener{
     private int width;
     private int height;
     private int boom_num;
+    private int cols;
+    private int rows;
     private GameFrame gf;
 
 
-    public GamePanel (int width, int height, int boom_num, GameFrame gf){
+    public GamePanel (int cols, int rows, int boom_num, GameFrame gf){
         this.gf = gf;
-        this.width = width;
-        this.height = height;
+        this.cols = cols;
+        this.rows = rows;
+        this.width = cols * 47;
+        this.height = rows * 47;
         this.boom_num = boom_num;
+        this.data = gf.getData();
 
-        world = new World(width, height, boom_num);
+        world = new World(cols, rows, boom_num);
+        arrayButton = world.getArrayButton();
         setLayout(new BorderLayout(20, 20));
         panelPlay = new PlayGround(this);
         add(header = new PanelHeader(this), BorderLayout.NORTH);
@@ -82,14 +88,6 @@ public class GamePanel extends JPanel implements MouseListener{
         this.panelPlay = panelPlay;
     }
 
-    public PanelHeader getHeader() {
-        return header;
-    }
-
-    public void setHeader(PanelHeader header) {
-        this.header = header;
-    }
-
     public LoadData getData() {
         return data;
     }
@@ -137,4 +135,36 @@ public class GamePanel extends JPanel implements MouseListener{
     public void setGf(GameFrame gf) {
         this.gf = gf;
     }
+
+
+    public PanelHeader getHeader() {
+        return header;
+    }
+
+
+    public void setHeader(PanelHeader header) {
+        this.header = header;
+    }
+
+
+    public int getCols() {
+        return cols;
+    }
+
+
+    public void setCols(int cols) {
+        this.cols = cols;
+    }
+
+
+    public int getRows() {
+        return rows;
+    }
+
+
+    public void setRows(int rows) {
+        this.rows = rows;
+    }
+
+    
 }

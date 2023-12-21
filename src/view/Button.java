@@ -19,7 +19,7 @@ public class Button extends JButton {
     public void paint(Graphics g){
         switch (number) {
             case -1:
-                g.drawImage(panelPlay.getGp().getGf().getData().getListImage().get("smile"), 0, 0, 
+                g.drawImage(panelPlay.getGp().getGf().getData().getListImage().get("empty"), 0, 0, 
                     getPreferredSize().width, getPreferredSize().height, this);
                 break;
             case 0:
