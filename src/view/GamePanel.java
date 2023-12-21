@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Control.World;
@@ -53,7 +54,15 @@ public class GamePanel extends JPanel implements MouseListener{
         for(int i = 0; i < arrayButton.length; i++){
             for(int j = 0; j < arrayButton[i].length; j++){
                 if(e.getButton() == MouseEvent.BUTTON1 && e.getSource() == arrayButton[i][j]){
-                    world.open(i, j);
+                    if(!world.open(i, j)){
+                        int option = JOptionPane.showConfirmDialog(this, "Are you play again?", "Notification", JOptionPane.YES_NO_OPTION);
+                        if(option == JOptionPane.YES_OPTION){
+                            gf.setVisible(false);
+                            new GameFrame(cols, rows, boom_num);
+                        } else {
+                            world.fullTrue();
+                        }
+                    }
                 }
 
             }

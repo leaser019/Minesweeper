@@ -7,10 +7,13 @@ public class World {
     private Random rd;
     private Button[][] arrayButton;
     private int[][] arrayMin;
+    private boolean[][] arrayBoolean;
+    private boolean isComplete;
 
     public World(int cols, int rows, int boom_num) {
         arrayButton = new Button[cols][rows];
         arrayMin = new int[cols][rows];
+        arrayBoolean = new boolean[cols][rows];
         rd = new Random();
 
         createArrayMin(boom_num, cols, rows);
@@ -31,11 +34,38 @@ public class World {
         }
     }
 
-    public void open(int i, int j){
-        int number = arrayMin[i][j];
-        if(number != -1){
-            arrayButton[i][j].setNumber(number);
-            arrayButton[i][j].repaint();
+    public boolean open(int i, int j){
+        if(!isComplete){
+            if(!arrayBoolean[i][j]){
+                if(arrayMin[i][j] == 0){
+                    arrayBoolean[i][j] = true;
+                    arrayButton[i][j].setNumber(0);
+                    arrayButton[i][j].repaint();
+                    for(int l = i - 1; l <= i + 1; l++){
+                        for(int k = j - 1; k <= j + 1; k++){
+                            if(l>=0 && l<=arrayMin.length-1 && k>=0 && k<=arrayMin[i].length-1){
+                                if(!arrayBoolean[l][k])
+                                open(l, k);
+                            }
+                        }
+                    }
+                } else {
+                    arrayBoolean[i][j] = true;
+                    int number = arrayMin[i][j];
+                    if(number != -1){
+                        arrayButton[i][j].setNumber(number);
+                        arrayButton[i][j].repaint();
+                        return true;
+                    }
+                } 
+            }
+            if (arrayMin[i][j] == -1) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
         }
     }
 
@@ -70,6 +100,17 @@ public class World {
                 }
             }
         }
+    }
+
+    public void fullTrue(){
+        for(int i = 0; i < arrayBoolean.length; i++){
+            for(int j = 0; j < arrayBoolean[i].length; j++){
+                if(!arrayBoolean[i][j]){
+                    arrayBoolean[i][j] = true;
+                }
+            }
+        }
+        isComplete = true;
     }
     public Button[][] getArrayButton() {
         return arrayButton;
