@@ -30,6 +30,12 @@ public class LoadData {
             listImage.put("seven_play_ground", image.getSubimage(112, 0, 17, 17));
             listImage.put("eight_play_ground", image.getSubimage(128, 0, 17, 17));
 
+            listImage.put("flag", image.getSubimage(16, 40, 18, 18));
+            listImage.put("red_boom", image.getSubimage(32, 40, 18, 18));
+            listImage.put("boom_x", image.getSubimage(48, 40, 18, 18));
+            listImage.put("boom", image.getSubimage(64, 40, 18, 18));
+
+
             listImage.put("0", image.getSubimage(0, 0, 13, 23));
             listImage.put("1", image.getSubimage(13, 0, 13, 23));
             listImage.put("2", image.getSubimage(26, 0, 13, 23));

@@ -53,18 +53,27 @@ public class GamePanel extends JPanel implements MouseListener{
         Button[][] arrayButton = panelPlay.getArrayButton();
         for(int i = 0; i < arrayButton.length; i++){
             for(int j = 0; j < arrayButton[i].length; j++){
-                if(e.getButton() == MouseEvent.BUTTON1 && e.getSource() == arrayButton[i][j]){
+                if(e.getButton() == MouseEvent.BUTTON1 && e.getSource() == arrayButton[i][j] && !world.getArrayPutFlag()[i][j]){
                     if(!world.open(i, j)){
-                        int option = JOptionPane.showConfirmDialog(this, "Are you play again?", "Notification", JOptionPane.YES_NO_OPTION);
-                        if(option == JOptionPane.YES_OPTION){
-                            gf.setVisible(false);
-                            new GameFrame(cols, rows, boom_num);
-                        } else {
-                            world.fullTrue();
-                        }
+                        if(world.isWin()){
+                            int option = JOptionPane.showConfirmDialog(this, "You lose,play again?", "Notification", JOptionPane.YES_NO_OPTION);
+                            if(option == JOptionPane.YES_OPTION){
+                                gf.setVisible(false);
+                                new GameFrame(cols, rows, boom_num);
+                            }else{
+                                world.fullTrue();
+                            }
+                        }else if(world.isLose()){
+                            int option = JOptionPane.showConfirmDialog(this, "You win, play again?", "Notification", JOptionPane.YES_NO_OPTION);
+                            if(option == JOptionPane.YES_OPTION){
+                                gf.setVisible(false);
+                                new GameFrame(cols, rows, boom_num);
+                            }
+                        }   
                     }
+                } else if(e.getButton() == MouseEvent.BUTTON3 && e.getSource() == arrayButton[i][j]){
+                    world.putFlag(i,j);
                 }
-
             }
         }
     }

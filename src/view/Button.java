@@ -58,6 +58,22 @@ public class Button extends JButton {
                 g.drawImage(panelPlay.getGp().getGf().getData().getListImage().get("eight_play_ground"), 0, 0, 
                     getPreferredSize().width, getPreferredSize().height, this);
                 break;
+            case 9:
+                g.drawImage(panelPlay.getGp().getGf().getData().getListImage().get("flag"), 0, 0, 
+                    getPreferredSize().width, getPreferredSize().height, this);
+                break;
+            case 10:
+                g.drawImage(panelPlay.getGp().getGf().getData().getListImage().get("boom"), 0, 0, 
+                    getPreferredSize().width, getPreferredSize().height, this);
+                break;
+            case 11:
+                g.drawImage(panelPlay.getGp().getGf().getData().getListImage().get("red_boom"), 0, 0, 
+                    getPreferredSize().width, getPreferredSize().height, this);
+                break;
+            case 12:
+                g.drawImage(panelPlay.getGp().getGf().getData().getListImage().get("boom_x"), 0, 0, 
+                    getPreferredSize().width, getPreferredSize().height, this);
+                break;
             default:
                 break;
         }
