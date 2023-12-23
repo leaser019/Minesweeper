@@ -1,6 +1,7 @@
 package Control;
 
 import view.Button;
+
 import java.util.Random;
 
 public class World {
@@ -91,6 +92,44 @@ public class World {
             return false;
     }
 
+    public boolean clickDouble(int i, int j){
+        boolean ishaveBoom = false;
+        for(int l = i - 1; l <= i + 1; l++){
+            for(int k = j - 1; k <= j + 1; k++){
+                if(l>=0 && l<=arrayMin.length-1 && k>=0 && k<=arrayMin[i].length-1){
+                    if(!arrayPutFlag[l][k]){
+                        if(arrayMin[l][k] == -1){
+                            ishaveBoom = true;
+                            arrayButton[l][k].setNumber(12);
+                            arrayButton[l][k].repaint();
+                            arrayBoolean[l][k] = true;
+                        }else if(!arrayBoolean[l][k]){
+                            if(arrayMin[l][k] == 0){
+                                open(l, k);
+                            } else {
+                                arrayButton[l][k].setNumber(arrayMin[l][k]);
+                                arrayButton[l][k].repaint();
+                                arrayBoolean[l][k] = true;
+                            } 
+                        }
+                    }
+                }
+            }
+        }
+        if(ishaveBoom){
+            for(int j2 = 0; j2 < arrayBoolean.length; j2++){
+                for(int k = 0; k < arrayBoolean[i].length; k++){
+                    if(arrayMin[j2][k] == -1 && !arrayBoolean[j2][k]){
+                        arrayButton[j2][k].setNumber(10);
+                        arrayButton[j2][k].repaint();
+                    }
+                }
+            }
+            return false;
+        }
+        return true;
+    }
+
     public void putFlag(int i, int j){
         if(!arrayBoolean[i][j]){
             if(arrayPutFlag[i][j]){
@@ -178,6 +217,10 @@ public class World {
     public void setArrayMin(int[][] arrayMin) {
         this.arrayMin = arrayMin;
     }
+
+     public boolean[][] getArrayBoolean(){
+        return arrayBoolean;
+     }
 
     public void setArrayBoolean(boolean[][] arrayBoolean){
         this.arrayBoolean = arrayBoolean;
