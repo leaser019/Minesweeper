@@ -1,4 +1,4 @@
-package Control;
+package controller;
 
 import view.Button;
 import view.GamePanel;

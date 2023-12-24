@@ -7,7 +7,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import Control.World;
+import controller.World;
 import model.LoadData;
 
 public class GamePanel extends JPanel implements MouseListener{
