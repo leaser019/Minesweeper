@@ -1,10 +1,12 @@
 package Control;
 
 import view.Button;
+import view.GamePanel;
 
 import java.util.Random;
 
 public class World {
+    private GamePanel game;
     private Random rd;
     private Button[][] arrayButton;
     private int[][] arrayMin;
@@ -12,11 +14,12 @@ public class World {
     private boolean isLose;
     private boolean[][] arrayBoolean;
     private boolean[][] arrayPutFlag;
+    private int flag;
     private int boom_num;
 
-    public World(int cols, int rows, int boom_num) {
+    public World(int cols, int rows, int boom_num, GamePanel game) {
         this.boom_num = boom_num;
-
+        this.game = game;
         arrayButton = new Button[cols][rows];
         arrayMin = new int[cols][rows];
         arrayBoolean = new boolean[cols][rows];
@@ -133,13 +136,17 @@ public class World {
     public void putFlag(int i, int j){
         if(!arrayBoolean[i][j]){
             if(arrayPutFlag[i][j]){
+                flag--;
                 arrayPutFlag[i][j] = false;
                 arrayButton[i][j].setNumber(-1);
                 arrayButton[i][j].repaint();
-            }else{
-                arrayPutFlag[i][j] = false;
+                game.getHeader().updatelabelLeft();
+            }else if (flag < boom_num){
+                flag++;
+                arrayPutFlag[i][j] = true;
                 arrayButton[i][j].setNumber(9);
                 arrayButton[i][j].repaint();
+                game.getHeader().updatelabelLeft();
             }
         }
     }
@@ -169,7 +176,6 @@ public class World {
                 arrayMin[locationX][locationY] = -1;
                 count++;
             }
-    
         }
     }
 
@@ -249,5 +255,39 @@ public class World {
     public void setArrayPutFlag(boolean[][] arrayPutFlag) {
         this.arrayPutFlag = arrayPutFlag;
     }
+
+    public int getFlag() {
+        return flag;
+    }
+
+    public void setFlag(int flag) {
+        this.flag = flag;
+    }
+
+    public GamePanel getGame() {
+        return game;
+    }
+
+    public void setGame(GamePanel game) {
+        this.game = game;
+    }
+
+    public Random getRd() {
+        return rd;
+    }
+
+    public void setRd(Random rd) {
+        this.rd = rd;
+    }
+
+    public int getBoom_num() {
+        return boom_num;
+    }
+
+    public void setBoom_num(int boom_num) {
+        this.boom_num = boom_num;
+    }
+    
+    
     
 }

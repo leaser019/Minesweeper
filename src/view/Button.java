@@ -82,4 +82,22 @@ public class Button extends JButton {
     public void setNumber (int number){
         this.number  = number;
     }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    public PlayGround getPanelPlay() {
+        return panelPlay;
+    }
+
+    public void setPanelPlay(PlayGround panelPlay) {
+        this.panelPlay = panelPlay;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    
 }

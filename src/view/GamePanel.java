@@ -34,7 +34,7 @@ public class GamePanel extends JPanel implements MouseListener{
         this.boom_num = boom_num;
         this.data = gf.getData();
 
-        world = new World(cols, rows, boom_num);
+        world = new World(cols, rows, boom_num, this);
         arrayButton = world.getArrayButton();
         setLayout(new BorderLayout(20, 20));
         panelPlay = new PlayGround(this);
@@ -54,8 +54,14 @@ public class GamePanel extends JPanel implements MouseListener{
         for(int i = 0; i < arrayButton.length; i++){
             for(int j = 0; j < arrayButton[i].length; j++){
                 if(e.getButton() == MouseEvent.BUTTON1 && e.getSource() == arrayButton[i][j] && !world.getArrayPutFlag()[i][j]){
+                    if(!getHeader().getTime().isRunning()){
+                        getHeader().getTime().start();
+                    }
                     if(!world.open(i, j)){
                         if(world.isWin()){
+                            getHeader().getTime().stop();
+                            getHeader().getIcon().setStage(SmileButton.lose);
+                            getHeader().getIcon().repaint();
                             int option = JOptionPane.showConfirmDialog(this, "You lose,play again?", "Notification", JOptionPane.YES_NO_OPTION);
                             if(option == JOptionPane.YES_OPTION){
                                 gf.setVisible(false);
@@ -64,6 +70,9 @@ public class GamePanel extends JPanel implements MouseListener{
                                 world.fullTrue();
                             }
                         }else if(world.isLose()){
+                            getHeader().getTime().stop();
+                            getHeader().getIcon().setStage(SmileButton.win);
+                            getHeader().getIcon().repaint();
                             int option = JOptionPane.showConfirmDialog(this, "You win, play again?", "Notification", JOptionPane.YES_NO_OPTION);
                             if(option == JOptionPane.YES_OPTION){
                                 gf.setVisible(false);
@@ -194,6 +203,4 @@ public class GamePanel extends JPanel implements MouseListener{
     public void setRows(int rows) {
         this.rows = rows;
     }
-
-    
 }

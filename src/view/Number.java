@@ -17,11 +17,38 @@ public class Number extends JLabel {
 
     @Override
     public void paintComponent(Graphics g) {
-        g.drawImage(gp.getGame().getData().getListImage().get(String.valueOf(s.charAt(0))), 0, 0, 25,
+        if(s.equals("infi")){
+            g.drawImage(gp.getGame().getData().getListImage().get("infi"), 0, 0, 25,
                 getPreferredSize().height, null);
-        g.drawImage(gp.getGame().getData().getListImage().get(String.valueOf(s.charAt(1))), 25, 0, 25,
+            g.drawImage(gp.getGame().getData().getListImage().get("infi"), 25, 0, 25,
                 getPreferredSize().height, null);
-        g.drawImage(gp.getGame().getData().getListImage().get(String.valueOf(s.charAt(2))), 50, 0, 25,
+            g.drawImage(gp.getGame().getData().getListImage().get("infi"), 50, 0, 25,
                 getPreferredSize().height, null);
+        } else {
+            g.drawImage(gp.getGame().getData().getListImage().get(String.valueOf(s.charAt(0))), 0, 0, 25,
+                getPreferredSize().height, null);
+            g.drawImage(gp.getGame().getData().getListImage().get(String.valueOf(s.charAt(1))), 25, 0, 25,
+                getPreferredSize().height, null);
+            g.drawImage(gp.getGame().getData().getListImage().get(String.valueOf(s.charAt(2))), 50, 0, 25,
+                getPreferredSize().height, null);
+        }
+        
     }
+
+    public PanelHeader getGp() {
+        return gp;
+    }
+
+    public void setGp(PanelHeader gp) {
+        this.gp = gp;
+    }
+
+    public String getS() {
+        return s;
+    }
+
+    public void setS(String s) {
+        this.s = s;
+    }
+    
 }
