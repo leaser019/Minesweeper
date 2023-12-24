@@ -12,14 +12,14 @@ import javax.swing.ImageIcon;
 import java.awt.Font;
 import java.awt.Toolkit;
 
-public class GameWin extends JFrame {
+public class GameWon extends JFrame {
     private JPanel contentPane;
 
     public static void main(String[] args) {
-        GameWin gw = new GameWin();
+        GameWon gw = new GameWon();
     }
 
-    public GameWin() {
+    public GameWon() {
         setResizable(false);
         setFont(new Font("Times New Roman", Font.PLAIN, 14));
         setIconImage(Toolkit.getDefaultToolkit().getImage(

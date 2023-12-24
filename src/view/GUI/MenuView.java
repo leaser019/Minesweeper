@@ -13,7 +13,6 @@ public class MenuView extends JFrame {
 
     private JPanel contentPane;
     private JTextField textField_1;
-    private ComingSoon comingSoon;
     private GameFrame gameWindow;
     private GamePanel gamePanel;
 

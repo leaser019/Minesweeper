@@ -19,22 +19,25 @@ public class LoadData {
             listImage.put("flag", image.getSubimage(15, 39, 17, 17));
 
             listImage.put("smile", image.getSubimage(0, 55, 26, 26));
+            listImage.put("smileWin", image.getSubimage(26, 55, 26, 26));
+            listImage.put("smileLose", image.getSubimage(52, 55, 26, 26));
+            listImage.put("smilePress", image.getSubimage(78, 55, 26, 26));
+            listImage.put("smilePressPlay", image.getSubimage(104, 55, 26, 26));
 
             listImage.put("empty_play_ground", image.getSubimage(0, 23, 17, 17));
-            listImage.put("one_play_ground", image.getSubimage(16, 23, 17, 17));
-            listImage.put("two_play_ground", image.getSubimage(32, 0, 17, 17));
-            listImage.put("three_play_ground", image.getSubimage(48, 0, 17, 17));
-            listImage.put("four_play_ground", image.getSubimage(64, 0, 17, 17));
-            listImage.put("five_play_ground", image.getSubimage(80, 0, 17, 17));
-            listImage.put("six_play_ground", image.getSubimage(96, 0, 17, 17));
-            listImage.put("seven_play_ground", image.getSubimage(112, 0, 17, 17));
-            listImage.put("eight_play_ground", image.getSubimage(128, 0, 17, 17));
+            listImage.put("one_play_ground", image.getSubimage(17, 23, 17, 17));
+            listImage.put("two_play_ground", image.getSubimage(33, 23, 17, 17));
+            listImage.put("three_play_ground", image.getSubimage(49, 23, 17, 17));
+            listImage.put("four_play_ground", image.getSubimage(67, 23, 17, 17));
+            listImage.put("five_play_ground", image.getSubimage(84, 23, 17, 17));
+            listImage.put("six_play_ground", image.getSubimage(101, 23, 17, 17));
+            listImage.put("seven_play_ground", image.getSubimage(118, 23, 17, 17));
+            listImage.put("eight_play_ground", image.getSubimage(128, 23, 17, 17));
 
-            listImage.put("flag", image.getSubimage(16, 40, 18, 18));
-            listImage.put("red_boom", image.getSubimage(32, 40, 18, 18));
-            listImage.put("boom_x", image.getSubimage(48, 40, 18, 18));
-            listImage.put("boom", image.getSubimage(64, 40, 18, 18));
-
+            listImage.put("flag", image.getSubimage(16, 40, 17, 17));
+            listImage.put("red_boom", image.getSubimage(32, 40, 17, 17));
+            listImage.put("boom_x", image.getSubimage(48, 40, 17, 17));
+            listImage.put("boom", image.getSubimage(64, 40, 17, 1));
 
             listImage.put("0", image.getSubimage(0, 0, 13, 23));
             listImage.put("1", image.getSubimage(13, 0, 13, 23));
