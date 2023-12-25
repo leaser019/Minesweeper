@@ -1,23 +1,21 @@
 package view.GUI;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-
-import javax.swing.JLabel;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.ImageIcon;
-import java.awt.Font;
+import view.GameFrame;
+import view.GamePanel;
 import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.awt.Font;
+import java.awt.Graphics;
 
 public class GameWon extends JFrame {
-    private JPanel contentPane;
 
-    public static void main(String[] args) {
-        GameWon gw = new GameWon();
-    }
+    private JPanel content;
+    static BufferedImage img;
 
     public GameWon() {
         setResizable(false);
@@ -26,14 +24,27 @@ public class GameWon extends JFrame {
                 "img\\icon.png"));
         setTitle("Minesweeper");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(805, 605);
+        setSize(585, 600);
         setLocationRelativeTo(null);
-        contentPane = new JPanel();
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        try {
+            img = ImageIO.read(new File("img\\GameWon.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        setContentPane(contentPane);
+        content = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                g.drawImage(img, 0, 0, null);
+            }
+        };
+        content.setSize(getPreferredSize());
+        this.add(content);
 
-        JLabel lblNewLabel = new JLabel("New label");
-        lblNewLabel.setIcon(new ImageIcon("lib\\image\\gameWinner.png"));
+        this.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        GameWon gw = new GameWon();
     }
 }
