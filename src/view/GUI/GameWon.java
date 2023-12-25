@@ -23,8 +23,8 @@ public class GameWon extends JFrame {
         setResizable(false);
         setFont(new Font("Times New Roman", Font.PLAIN, 14));
         setIconImage(Toolkit.getDefaultToolkit().getImage(
-                "lib\\image\\icon.png"));
-        setTitle("Plants Vs Zombie");
+                "img\\icon.png"));
+        setTitle("Minesweeper");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(805, 605);
         setLocationRelativeTo(null);

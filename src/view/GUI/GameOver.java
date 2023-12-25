@@ -19,19 +19,11 @@ public class GameOver extends JFrame {
         setResizable(false);
         setFont(new Font("Times New Roman", Font.PLAIN, 14));
         setIconImage(Toolkit.getDefaultToolkit().getImage(
-                "lib\\image\\icon.png"));
-        setTitle("Plants Vs Zombie");
+                "img\\icon.png"));
+        setTitle("Minesweeper");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(805, 605);
         setLocationRelativeTo(null);
-        // setBounds(100, 100, 450, 300);
-        contentPane = new JPanel();
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-        setContentPane(contentPane);
-
-        JLabel lblNewLabel = new JLabel("New label");
-        lblNewLabel.setIcon(new ImageIcon("lib\\image\\gameOver.png"));
     }
 
 }
