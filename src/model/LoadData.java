@@ -37,7 +37,7 @@ public class LoadData {
             listImage.put("flag", image.getSubimage(16, 40, 17, 17));
             listImage.put("red_boom", image.getSubimage(32, 40, 17, 17));
             listImage.put("boom_x", image.getSubimage(48, 40, 17, 17));
-            listImage.put("boom", image.getSubimage(64, 40, 17, 1));
+            listImage.put("boom", image.getSubimage(64, 40, 17, 17));
 
             listImage.put("0", image.getSubimage(0, 0, 13, 23));
             listImage.put("1", image.getSubimage(13, 0, 13, 23));
@@ -50,7 +50,7 @@ public class LoadData {
             listImage.put("8", image.getSubimage(104, 0, 13, 23));
             listImage.put("9", image.getSubimage(117, 0, 13, 23));
             listImage.put("infi", image.getSubimage(130, 0, 13, 23));
-
+            listImage.put("stick", image.getSubimage(140, 49, 7, 7));
         } catch (Exception e) {
             e.printStackTrace();
         }
