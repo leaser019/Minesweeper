@@ -5,7 +5,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         int width = 18;
         int height = 18;
-        int boom_num = 30;
+        int boom_num = 40;
         MenuView gf = new MenuView(width, height, boom_num);
     }
 }

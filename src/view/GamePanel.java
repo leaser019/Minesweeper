@@ -9,8 +9,10 @@ import javax.swing.JPanel;
 
 import controller.World;
 import model.LoadData;
+import view.GUI.GameOver;
+import view.GUI.GameWon;
 
-public class GamePanel extends JPanel implements MouseListener{
+public class GamePanel extends JPanel implements MouseListener {
     private PlayGround panelPlay;
     private Button[][] arrayButton;
     private PanelHeader header;
@@ -24,8 +26,7 @@ public class GamePanel extends JPanel implements MouseListener{
     private int rows;
     private GameFrame gf;
 
-
-    public GamePanel (int cols, int rows, int boom_num, GameFrame gf){
+    public GamePanel(int cols, int rows, int boom_num, GameFrame gf) {
         this.gf = gf;
         this.cols = cols;
         this.rows = rows;
@@ -42,59 +43,63 @@ public class GamePanel extends JPanel implements MouseListener{
         add(panelPlay, BorderLayout.CENTER);
     }
 
-
     @Override
     public void mouseClicked(MouseEvent e) {
     }
-
 
     @Override
     public void mousePressed(MouseEvent e) {
         getHeader().getIcon().setStage(SmileButton.wow);
         getHeader().getIcon().repaint();
         Button[][] arrayButton = panelPlay.getArrayButton();
-        for(int i = 0; i < arrayButton.length; i++){
-            for(int j = 0; j < arrayButton[i].length; j++){
-                if(e.getButton() == MouseEvent.BUTTON1 && e.getSource() == arrayButton[i][j] && !world.getArrayPutFlag()[i][j]){
-                    if(!getHeader().getTime().isRunning()){
+        for (int i = 0; i < arrayButton.length; i++) {
+            for (int j = 0; j < arrayButton[i].length; j++) {
+                if (e.getButton() == MouseEvent.BUTTON1 && e.getSource() == arrayButton[i][j]
+                        && !world.getArrayPutFlag()[i][j]) {
+                    if (!getHeader().getTime().isRunning()) {
                         getHeader().getTime().start();
                     }
-                    if(!world.open(i, j)){
-                        if(world.isWin()){
+                    if (!world.open(i, j)) {
+                        if (world.isWin()) {
                             getHeader().getTime().stop();
                             getHeader().getIcon().setStage(SmileButton.lose);
                             getHeader().getIcon().repaint();
-                            int option = JOptionPane.showConfirmDialog(this, "You lose,play again?", "Notification", JOptionPane.YES_NO_OPTION);
-                            if(option == JOptionPane.YES_OPTION){
-                                gf.setVisible(false);
-                                new GameFrame(cols, rows, boom_num);
-                            }else{
-                                world.fullTrue();
-                            }
-                        }else if(world.isLose()){
-                            getHeader().getTime().stop();
-                            getHeader().getIcon().setStage(SmileButton.win);
-                            getHeader().getIcon().repaint();
-
-                            int option = JOptionPane.showConfirmDialog(this, "You win, play again?", "Notification", JOptionPane.YES_NO_OPTION);
-                            
-                            if(option == JOptionPane.YES_OPTION){
-                                gf.setVisible(false);
-                                new GameFrame(cols, rows, boom_num);
-                            }
-                        }   
-                    }
-                } else if(e.getButton() == MouseEvent.BUTTON3 && e.getSource() == arrayButton[i][j]){
-                    world.putFlag(i,j);
-                } 
-                if(e.getClickCount() == 2 && e.getSource() == arrayButton[i][j] && world.getArrayBoolean()[i][j]){
-                    if(!world.clickDouble(i, j)){
-                        int option = JOptionPane.showConfirmDialog(this, "You lose, play again?", "Notification", JOptionPane.YES_NO_OPTION);
-                            if(option == JOptionPane.YES_OPTION){
+                            int option = JOptionPane.showConfirmDialog(this, "You lose,play again?", "Notification",
+                                    JOptionPane.YES_NO_OPTION);
+                            if (option == JOptionPane.YES_OPTION) {
                                 gf.setVisible(false);
                                 new GameFrame(cols, rows, boom_num);
                             } else {
                                 world.fullTrue();
+                            }
+                        } else if (world.isLose()) {
+                            getHeader().getTime().stop();
+                            getHeader().getIcon().setStage(SmileButton.win);
+                            getHeader().getIcon().repaint();
+
+                            int option = JOptionPane.showConfirmDialog(this, "You win, play again?", "Winner",
+                                    JOptionPane.YES_NO_OPTION);
+
+                            if (option == JOptionPane.YES_OPTION) {
+                                new GameWon(cols, rows, boom_num);
+                                // gf.setVisible(false);
+                                // new GameFrame(cols, rows, boom_num);
+                            }
+                        }
+                    }
+                } else if (e.getButton() == MouseEvent.BUTTON3 && e.getSource() == arrayButton[i][j]) {
+                    world.putFlag(i, j);
+                }
+                if (e.getClickCount() == 2 && e.getSource() == arrayButton[i][j] && world.getArrayBoolean()[i][j]) {
+                    if (!world.clickDouble(i, j)) {
+                        int option = JOptionPane.showConfirmDialog(this, "You lose, play again?", "Loser",
+                                JOptionPane.YES_NO_OPTION);
+                        if (option == JOptionPane.YES_OPTION) {
+                            new GameOver(cols, rows, boom_num);
+                            // gf.setVisible(false);
+                            // new GameFrame(cols, rows, boom_num);
+                        } else {
+                            world.fullTrue();
                         }
                     }
                 }
@@ -180,31 +185,25 @@ public class GamePanel extends JPanel implements MouseListener{
         this.gf = gf;
     }
 
-
     public PanelHeader getHeader() {
         return header;
     }
-
 
     public void setHeader(PanelHeader header) {
         this.header = header;
     }
 
-
     public int getCols() {
         return cols;
     }
-
 
     public void setCols(int cols) {
         this.cols = cols;
     }
 
-
     public int getRows() {
         return rows;
     }
-
 
     public void setRows(int rows) {
         this.rows = rows;
