@@ -50,6 +50,8 @@ public class GamePanel extends JPanel implements MouseListener{
 
     @Override
     public void mousePressed(MouseEvent e) {
+        getHeader().getIcon().setStage(SmileButton.wow);
+        getHeader().getIcon().repaint();
         Button[][] arrayButton = panelPlay.getArrayButton();
         for(int i = 0; i < arrayButton.length; i++){
             for(int j = 0; j < arrayButton[i].length; j++){
@@ -73,7 +75,9 @@ public class GamePanel extends JPanel implements MouseListener{
                             getHeader().getTime().stop();
                             getHeader().getIcon().setStage(SmileButton.win);
                             getHeader().getIcon().repaint();
+
                             int option = JOptionPane.showConfirmDialog(this, "You win, play again?", "Notification", JOptionPane.YES_NO_OPTION);
+                            
                             if(option == JOptionPane.YES_OPTION){
                                 gf.setVisible(false);
                                 new GameFrame(cols, rows, boom_num);
@@ -100,6 +104,8 @@ public class GamePanel extends JPanel implements MouseListener{
 
     @Override
     public void mouseReleased(MouseEvent e) {
+        getHeader().getIcon().setStage(SmileButton.now);
+        getHeader().getIcon().repaint();
     }
 
     @Override

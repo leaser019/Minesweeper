@@ -42,7 +42,6 @@ public class World {
 
                     if(verifyWinGame()){
                         isLose = true;
-                        fullTrue();
                         return false;
                     }
 
@@ -55,6 +54,12 @@ public class World {
                             }
                         }
                     }
+                    if(verifyWinGame()){
+                            isLose = true;
+                            return false;
+                        }
+
+                        return true;
                 }else{
                     arrayBoolean[i][j] = true;
                     int number = arrayMin[i][j];
@@ -65,7 +70,6 @@ public class World {
 
                         if(verifyWinGame()){
                             isLose = true;
-                            fullTrue();
                             return false;
                         }
 
@@ -81,14 +85,20 @@ public class World {
                 for(int a = 0; a < arrayBoolean.length; a++){
                     for(int b = 0; b < arrayBoolean[i].length; b++){
                         if(arrayMin[a][b] == -1 && !arrayBoolean[a][b]){
-                            arrayButton[a][b].setNumber(10);
-                            arrayButton[a][b].repaint();
+                            //if(a !=i || b != j){
+                                arrayButton[a][b].setNumber(10);
+                                arrayButton[a][b].repaint();
+                            //}
                         }
                     }
                 }
 
                 return false;
             }else{
+                if(verifyWinGame()){
+                    isLose = true;
+                    return false;
+                }
                 return true;
             }
         }else
@@ -174,7 +184,15 @@ public class World {
 
             if (arrayMin[locationX][locationY] != -1) {
                 arrayMin[locationX][locationY] = -1;
-                count++;
+                count = 0;
+
+                for(int i = 0; i < arrayMin.length; i++){
+                    for(int j = 0; j < arrayMin[i].length; j++){
+                        if(arrayMin[i][j]==-1){
+                            count++;
+                        }
+                    }
+                }
             }
         }
     }

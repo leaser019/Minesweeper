@@ -51,8 +51,13 @@ public class PanelHeader extends JPanel {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                icon.setStage(SmileButton.press);
-                icon.repaint();
+                if(getGame().getWorld().isLose() || getGame().getWorld().isWin()){
+                    getGame().getGf().setVisible(false);
+                    new GameFrame(game.getCols(), game.getRows(), game.getBoom_num());
+                } else {
+                    icon.setStage(SmileButton.press);
+                    icon.repaint();
+                }
             }
 
             @Override
