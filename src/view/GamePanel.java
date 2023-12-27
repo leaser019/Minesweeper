@@ -50,6 +50,8 @@ public class GamePanel extends JPanel implements MouseListener{
 
     @Override
     public void mousePressed(MouseEvent e) {
+        getHeader().getIcon().setStage(SmileButton.wow);
+        getHeader().getIcon().repaint();
         Button[][] arrayButton = panelPlay.getArrayButton();
         for(int i = 0; i < arrayButton.length; i++){
             for(int j = 0; j < arrayButton[i].length; j++){
@@ -102,6 +104,8 @@ public class GamePanel extends JPanel implements MouseListener{
 
     @Override
     public void mouseReleased(MouseEvent e) {
+        getHeader().getIcon().setStage(SmileButton.now);
+        getHeader().getIcon().repaint();
     }
 
     @Override
