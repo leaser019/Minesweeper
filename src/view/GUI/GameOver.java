@@ -3,8 +3,6 @@ package view.GUI;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import view.GameFrame;
-import view.GamePanel;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
