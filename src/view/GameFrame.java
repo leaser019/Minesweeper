@@ -49,17 +49,17 @@ public class GameFrame extends JFrame {
         KeyStroke ctrl3KeyStroke = KeyStroke.getKeyStroke(KeyEvent.VK_3, KeyEvent.CTRL_DOWN_MASK);
         expert.setAccelerator(ctrl3KeyStroke);
 
-        if(width == 8){
+        if (width == 8) {
             easy.setIcon(new ImageIcon(data.getListImage().get("stick")));
-        }else if(width == 16){
+        } else if (width == 16) {
             intermediate.setIcon(new ImageIcon(data.getListImage().get("stick")));
-        }else{
+        } else {
             expert.setIcon(new ImageIcon(data.getListImage().get("stick")));
         }
 
         easy.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e){
+            public void actionPerformed(ActionEvent e) {
                 setVisible(false);
                 new GameFrame(8, 8, 10);
             }
@@ -67,44 +67,41 @@ public class GameFrame extends JFrame {
 
         intermediate.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e){
+            public void actionPerformed(ActionEvent e) {
                 setVisible(false);
                 new GameFrame(16, 16, 40);
-            }   
+            }
         });
 
         expert.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e){
+            public void actionPerformed(ActionEvent e) {
                 setVisible(false);
                 new GameFrame(20, 20, 77);
             }
-            
+
         });
 
         newGame.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e){
+            public void actionPerformed(ActionEvent e) {
                 setVisible(false);
                 new GameFrame(width, height, boom_num);
-            }   
+            }
         });
 
         quitGame.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e){
+            public void actionPerformed(ActionEvent e) {
                 System.exit(0);
-            }   
+            }
         });
 
-        
-        
-        
         panel = new GamePanel(width, height, boom_num, this);
         this.add(panel);
         this.setIconImage(data.getListImage().get("icon"));
         this.setSize(width * 47, height * 52);
-        this.setResizable(true);
+        this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
