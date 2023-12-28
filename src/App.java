@@ -1,4 +1,3 @@
-import view.GameFrame;
 import view.GUI.MenuView;
 
 public class App {
