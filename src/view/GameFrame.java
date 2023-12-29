@@ -122,15 +122,7 @@ public class GameFrame extends JFrame {
         return data;
     }
 
-    public void setData(LoadData data) {
-        this.data = data;
-    }
-
     public GamePanel getPanel() {
         return panel;
-    }
-
-    public void setPanel(GamePanel panel) {
-        this.panel = panel;
     }
 }
