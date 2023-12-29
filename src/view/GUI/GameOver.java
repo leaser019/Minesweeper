@@ -1,3 +1,9 @@
+/*
+ * DSA PROJECT - MINESWEEPER
+ * VO MINH KHANG - ITCSIU21136
+ * NGUYEN TRONG NGUYEN - ITITIU21263
+ * NGUYEN HOANG GIA AN - ITCSIU2161
+ */
 package view.GUI;
 
 import javax.imageio.ImageIO;

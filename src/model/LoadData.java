@@ -1,3 +1,9 @@
+/*
+ * DSA PROJECT - MINESWEEPER
+ * VO MINH KHANG - ITCSIU21136
+ * NGUYEN TRONG NGUYEN - ITITIU21263
+ * NGUYEN HOANG GIA AN - ITCSIU2161
+ */
 package model;
 
 import java.awt.image.BufferedImage;
@@ -63,9 +69,4 @@ public class LoadData {
     public HashMap<String, BufferedImage> getListImage() {
         return listImage;
     }
-
-    public void setListImage(HashMap<String, BufferedImage> listImage) {
-        this.listImage = listImage;
-    }
-
 }
