@@ -9,7 +9,7 @@ public class World {
     private GamePanel game;
     private Random rd;
     private Button[][] arrayButton;
-    private int[][] arrayMin;
+    private int[][] arrayBoom;
     private boolean isWin;
     private boolean isLose;
     private boolean[][] arrayBoolean;
@@ -21,13 +21,13 @@ public class World {
         this.boom_num = boom_num;
         this.game = game;
         arrayButton = new Button[cols][rows];
-        arrayMin = new int[cols][rows];
+        arrayBoom = new int[cols][rows];
         arrayBoolean = new boolean[cols][rows];
         arrayPutFlag = new boolean[cols][rows];
         rd = new Random();
 
-        createArrayMin(boom_num, cols, rows);
-        dienSo();
+        createArrayBoom(boom_num, cols, rows);
+        fillNumber();
     }
 
     public boolean open(int i, int j){
@@ -35,7 +35,7 @@ public class World {
         if(!isWin && !isLose){
             if(!arrayBoolean[i][j]){
 
-                if(arrayMin[i][j] == 0){
+                if(arrayBoom[i][j] == 0){
                     arrayBoolean[i][j] = true;
                     arrayButton[i][j].setNumber(0);
                     arrayButton[i][j].repaint();
@@ -47,7 +47,7 @@ public class World {
 
                     for(int l = i - 1; l <= i + 1; l++){
                         for(int k = j - 1; k <= j + 1; k++){
-                            if(l>=0 && l<=arrayMin.length-1 && k>=0 && k<=arrayMin[i].length-1){
+                            if(l>=0 && l<=arrayBoom.length-1 && k>=0 && k<=arrayBoom[i].length-1){
                                 if(!arrayBoolean[l][k]){
                                       open(l,k);
                                 }
@@ -62,7 +62,7 @@ public class World {
                         return true;
                 }else{
                     arrayBoolean[i][j] = true;
-                    int number = arrayMin[i][j];
+                    int number = arrayBoom[i][j];
 
                     if(number != -1){
                         arrayButton[i][j].setNumber(number);
@@ -77,14 +77,14 @@ public class World {
                     } 
                 }
             }
-            if(arrayMin[i][j] == -1){
+            if(arrayBoom[i][j] == -1){
                 arrayButton[i][j].setNumber(11);
                 arrayButton[i][j].repaint();
                 isWin = true;
 
                 for(int a = 0; a < arrayBoolean.length; a++){
                     for(int b = 0; b < arrayBoolean[i].length; b++){
-                        if(arrayMin[a][b] == -1 && !arrayBoolean[a][b]){
+                        if(arrayBoom[a][b] == -1 && !arrayBoolean[a][b]){
                             //if(a !=i || b != j){
                                 arrayButton[a][b].setNumber(10);
                                 arrayButton[a][b].repaint();
@@ -109,18 +109,18 @@ public class World {
         boolean ishaveBoom = false;
         for(int l = i - 1; l <= i + 1; l++){
             for(int k = j - 1; k <= j + 1; k++){
-                if(l>=0 && l<=arrayMin.length-1 && k>=0 && k<=arrayMin[i].length-1){
+                if(l>=0 && l<=arrayBoom.length-1 && k>=0 && k<=arrayBoom[i].length-1){
                     if(!arrayPutFlag[l][k]){
-                        if(arrayMin[l][k] == -1){
+                        if(arrayBoom[l][k] == -1){
                             ishaveBoom = true;
                             arrayButton[l][k].setNumber(12);
                             arrayButton[l][k].repaint();
                             arrayBoolean[l][k] = true;
                         }else if(!arrayBoolean[l][k]){
-                            if(arrayMin[l][k] == 0){
+                            if(arrayBoom[l][k] == 0){
                                 open(l, k);
                             } else {
-                                arrayButton[l][k].setNumber(arrayMin[l][k]);
+                                arrayButton[l][k].setNumber(arrayBoom[l][k]);
                                 arrayButton[l][k].repaint();
                                 arrayBoolean[l][k] = true;
                             } 
@@ -132,7 +132,7 @@ public class World {
         if(ishaveBoom){
             for(int j2 = 0; j2 < arrayBoolean.length; j2++){
                 for(int k = 0; k < arrayBoolean[i].length; k++){
-                    if(arrayMin[j2][k] == -1 && !arrayBoolean[j2][k]){
+                    if(arrayBoom[j2][k] == -1 && !arrayBoolean[j2][k]){
                         arrayButton[j2][k].setNumber(10);
                         arrayButton[j2][k].repaint();
                     }
@@ -176,19 +176,19 @@ public class World {
             return false;
     }
 
-    public void createArrayMin(int boom_num, int width, int height){
+    public void createArrayBoom(int boom_num, int width, int height){
         int count  = 0;
         while(count < boom_num){
             int locationX = rd.nextInt(width);
             int locationY = rd.nextInt(height);
 
-            if (arrayMin[locationX][locationY] != -1) {
-                arrayMin[locationX][locationY] = -1;
+            if (arrayBoom[locationX][locationY] != -1) {
+                arrayBoom[locationX][locationY] = -1;
                 count = 0;
 
-                for(int i = 0; i < arrayMin.length; i++){
-                    for(int j = 0; j < arrayMin[i].length; j++){
-                        if(arrayMin[i][j]==-1){
+                for(int i = 0; i < arrayBoom.length; i++){
+                    for(int j = 0; j < arrayBoom[i].length; j++){
+                        if(arrayBoom[i][j]==-1){
                             count++;
                         }
                     }
@@ -197,20 +197,20 @@ public class World {
         }
     }
 
-    public void dienSo(){
-        for(int i = 0; i < arrayMin.length; i++){
-            for(int j  = 0; j < arrayMin[i].length; j++){
-                if(arrayMin[i][j] == 0){
+    public void fillNumber(){
+        for(int i = 0; i < arrayBoom.length; i++){
+            for(int j  = 0; j < arrayBoom[i].length; j++){
+                if(arrayBoom[i][j] == 0){
                     int count = 0;
                     for(int l = i - 1; l <= i + 1; l++){
                         for(int k = j - 1; k <= j + 1; k++){
-                            if(l>=0 && l<=arrayMin.length-1 && k>=0 && k<=arrayMin[i].length-1)
-                            if(arrayMin[l][k] == -1){
+                            if(l>=0 && l<=arrayBoom.length-1 && k>=0 && k<=arrayBoom[i].length-1)
+                            if(arrayBoom[l][k] == -1){
                                 count++;
                             }
                         }
                     }
-                    arrayMin[i][j] = count;
+                    arrayBoom[i][j] = count;
                 }
             }
         }
@@ -234,12 +234,12 @@ public class World {
         this.arrayButton = arrayButton;
     }
 
-    public int[][] getArrayMin() {
-        return arrayMin;
+    public int[][] getArrayBoom() {
+        return arrayBoom;
     }
 
-    public void setArrayMin(int[][] arrayMin) {
-        this.arrayMin = arrayMin;
+    public void setArrayBoom(int[][] arrayBoom) {
+        this.arrayBoom = arrayBoom;
     }
 
      public boolean[][] getArrayBoolean(){
