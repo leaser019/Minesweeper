@@ -104,10 +104,11 @@ public class PanelHeader extends JPanel {
         if(boom_num.length() == 1){
             labelLeft.setS("00" + boom_num);
         } else if(boom_num.length() == 2){
-            labelLeft.setS("00" + boom_num);
+            labelLeft.setS("0" + boom_num);
         } else {
             labelLeft.setS("0" + boom_num);
         }
+        labelLeft.repaint();
 
     }
 
