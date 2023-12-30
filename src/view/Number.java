@@ -23,22 +23,22 @@ public class Number extends JLabel {
 
     @Override
     public void paintComponent(Graphics g) {
-        if(s.equals("infi")){
+        if (s.equals("infi")) {
             g.drawImage(gp.getGame().getData().getListImage().get("infi"), 0, 0, 25,
-                getPreferredSize().height, null);
+                    getPreferredSize().height, null);
             g.drawImage(gp.getGame().getData().getListImage().get("infi"), 25, 0, 25,
-                getPreferredSize().height, null);
+                    getPreferredSize().height, null);
             g.drawImage(gp.getGame().getData().getListImage().get("infi"), 50, 0, 25,
-                getPreferredSize().height, null);
+                    getPreferredSize().height, null);
         } else {
             g.drawImage(gp.getGame().getData().getListImage().get(String.valueOf(s.charAt(0))), 0, 0, 25,
-                getPreferredSize().height, null);
+                    getPreferredSize().height, null);
             g.drawImage(gp.getGame().getData().getListImage().get(String.valueOf(s.charAt(1))), 25, 0, 25,
-                getPreferredSize().height, null);
+                    getPreferredSize().height, null);
             g.drawImage(gp.getGame().getData().getListImage().get(String.valueOf(s.charAt(2))), 50, 0, 25,
-                getPreferredSize().height, null);
+                    getPreferredSize().height, null);
         }
-        
+
     }
 
     public PanelHeader getGp() {
@@ -56,5 +56,5 @@ public class Number extends JLabel {
     public void setS(String s) {
         this.s = s;
     }
-    
+
 }

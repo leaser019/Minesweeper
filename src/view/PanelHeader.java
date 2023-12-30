@@ -25,7 +25,6 @@ public class PanelHeader extends JPanel {
     private Timer time;
     private int nowTime;
 
-
     public PanelHeader(GamePanel game) {
         this.game = game;
         this.init();
@@ -44,7 +43,7 @@ public class PanelHeader extends JPanel {
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 nowTime++;
                 updatelabelRight();
-            }         
+            }
         });
         time.start();
 
@@ -57,7 +56,7 @@ public class PanelHeader extends JPanel {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                if(getGame().getWorld().isLose() || getGame().getWorld().isWin()){
+                if (getGame().getWorld().isLose() || getGame().getWorld().isWin()) {
                     getGame().getGf().setVisible(false);
                     new GameFrame(game.getCols(), game.getRows(), game.getBoom_num());
                 } else {
@@ -72,8 +71,8 @@ public class PanelHeader extends JPanel {
                 icon.repaint();
 
                 int option = JOptionPane.showConfirmDialog(null, "Are you play new game?", "Notification",
-                JOptionPane.YES_NO_OPTION);
-                if(option == JOptionPane.YES_OPTION){
+                        JOptionPane.YES_NO_OPTION);
+                if (option == JOptionPane.YES_OPTION) {
                     getGame().getGf().setVisible(false);
                     new GameFrame(game.getCols(), game.getRows(), game.getBoom_num());
                 }
@@ -86,7 +85,7 @@ public class PanelHeader extends JPanel {
             @Override
             public void mouseExited(MouseEvent e) {
             }
-            
+
         });
     }
 
@@ -105,11 +104,11 @@ public class PanelHeader extends JPanel {
         arrayButton = game.getPanelPlay().getArrayButton();
     }
 
-    public void updatelabelLeft(){
+    public void updatelabelLeft() {
         String boom_num = String.valueOf(game.getBoom_num() - game.getWorld().getFlag());
-        if(boom_num.length() == 1){
+        if (boom_num.length() == 1) {
             labelLeft.setS("00" + boom_num);
-        } else if(boom_num.length() == 2){
+        } else if (boom_num.length() == 2) {
             labelLeft.setS("0" + boom_num);
         } else {
             labelLeft.setS("0" + boom_num);
@@ -126,7 +125,8 @@ public class PanelHeader extends JPanel {
             if (cTime.length() == 1) {
                 labelRight.setS("00" + cTime);
             } else if (cTime.length() == 2) {
-                labelRight.setS("0" + cTime);;
+                labelRight.setS("0" + cTime);
+                ;
             } else {
                 labelRight.setS(cTime);
             }

@@ -36,109 +36,109 @@ public class World {
         fillNumber();
     }
 
-    public boolean open(int i, int j){
-        
-        if(!isWin && !isLose){
-            if(!arrayBoolean[i][j]){
+    public boolean open(int i, int j) {
 
-                if(arrayBoom[i][j] == 0){
+        if (!isWin && !isLose) {
+            if (!arrayBoolean[i][j]) {
+
+                if (arrayBoom[i][j] == 0) {
                     arrayBoolean[i][j] = true;
                     arrayButton[i][j].setNumber(0);
                     arrayButton[i][j].repaint();
 
-                    if(verifyWinGame()){
+                    if (verifyWinGame()) {
                         isLose = true;
                         return false;
                     }
 
-                    for(int l = i - 1; l <= i + 1; l++){
-                        for(int k = j - 1; k <= j + 1; k++){
-                            if(l>=0 && l<=arrayBoom.length-1 && k>=0 && k<=arrayBoom[i].length-1){
-                                if(!arrayBoolean[l][k]){
-                                      open(l,k);
+                    for (int l = i - 1; l <= i + 1; l++) {
+                        for (int k = j - 1; k <= j + 1; k++) {
+                            if (l >= 0 && l <= arrayBoom.length - 1 && k >= 0 && k <= arrayBoom[i].length - 1) {
+                                if (!arrayBoolean[l][k]) {
+                                    open(l, k);
                                 }
                             }
                         }
                     }
-                    if(verifyWinGame()){
-                            isLose = true;
-                            return false;
-                        }
+                    if (verifyWinGame()) {
+                        isLose = true;
+                        return false;
+                    }
 
-                        return true;
-                }else{
+                    return true;
+                } else {
                     arrayBoolean[i][j] = true;
                     int number = arrayBoom[i][j];
 
-                    if(number != -1){
+                    if (number != -1) {
                         arrayButton[i][j].setNumber(number);
                         arrayButton[i][j].repaint();
 
-                        if(verifyWinGame()){
+                        if (verifyWinGame()) {
                             isLose = true;
                             return false;
                         }
 
                         return true;
-                    } 
+                    }
                 }
             }
-            if(arrayBoom[i][j] == -1){
+            if (arrayBoom[i][j] == -1) {
                 arrayButton[i][j].setNumber(11);
                 arrayButton[i][j].repaint();
                 isWin = true;
 
-                for(int a = 0; a < arrayBoolean.length; a++){
-                    for(int b = 0; b < arrayBoolean[i].length; b++){
-                        if(arrayBoom[a][b] == -1 && !arrayBoolean[a][b]){
-                            //if(a !=i || b != j){
-                                arrayButton[a][b].setNumber(10);
-                                arrayButton[a][b].repaint();
-                            //}
+                for (int a = 0; a < arrayBoolean.length; a++) {
+                    for (int b = 0; b < arrayBoolean[i].length; b++) {
+                        if (arrayBoom[a][b] == -1 && !arrayBoolean[a][b]) {
+                            // if(a !=i || b != j){
+                            arrayButton[a][b].setNumber(10);
+                            arrayButton[a][b].repaint();
+                            // }
                         }
                     }
                 }
 
                 return false;
-            }else{
-                if(verifyWinGame()){
+            } else {
+                if (verifyWinGame()) {
                     isLose = true;
                     return false;
                 }
                 return true;
             }
-        }else
+        } else
             return false;
     }
 
-    public boolean clickDouble(int i, int j){
+    public boolean clickDouble(int i, int j) {
         boolean ishaveBoom = false;
-        for(int l = i - 1; l <= i + 1; l++){
-            for(int k = j - 1; k <= j + 1; k++){
-                if(l>=0 && l<=arrayBoom.length-1 && k>=0 && k<=arrayBoom[i].length-1){
-                    if(!arrayPutFlag[l][k]){
-                        if(arrayBoom[l][k] == -1){
+        for (int l = i - 1; l <= i + 1; l++) {
+            for (int k = j - 1; k <= j + 1; k++) {
+                if (l >= 0 && l <= arrayBoom.length - 1 && k >= 0 && k <= arrayBoom[i].length - 1) {
+                    if (!arrayPutFlag[l][k]) {
+                        if (arrayBoom[l][k] == -1) {
                             ishaveBoom = true;
                             arrayButton[l][k].setNumber(12);
                             arrayButton[l][k].repaint();
                             arrayBoolean[l][k] = true;
-                        }else if(!arrayBoolean[l][k]){
-                            if(arrayBoom[l][k] == 0){
+                        } else if (!arrayBoolean[l][k]) {
+                            if (arrayBoom[l][k] == 0) {
                                 open(l, k);
                             } else {
                                 arrayButton[l][k].setNumber(arrayBoom[l][k]);
                                 arrayButton[l][k].repaint();
                                 arrayBoolean[l][k] = true;
-                            } 
+                            }
                         }
                     }
                 }
             }
         }
-        if(ishaveBoom){
-            for(int j2 = 0; j2 < arrayBoolean.length; j2++){
-                for(int k = 0; k < arrayBoolean[i].length; k++){
-                    if(arrayBoom[j2][k] == -1 && !arrayBoolean[j2][k]){
+        if (ishaveBoom) {
+            for (int j2 = 0; j2 < arrayBoolean.length; j2++) {
+                for (int k = 0; k < arrayBoolean[i].length; k++) {
+                    if (arrayBoom[j2][k] == -1 && !arrayBoolean[j2][k]) {
                         arrayButton[j2][k].setNumber(10);
                         arrayButton[j2][k].repaint();
                     }
@@ -149,15 +149,15 @@ public class World {
         return true;
     }
 
-    public void putFlag(int i, int j){
-        if(!arrayBoolean[i][j]){
-            if(arrayPutFlag[i][j]){
+    public void putFlag(int i, int j) {
+        if (!arrayBoolean[i][j]) {
+            if (arrayPutFlag[i][j]) {
                 flag--;
                 arrayPutFlag[i][j] = false;
                 arrayButton[i][j].setNumber(-1);
                 arrayButton[i][j].repaint();
                 game.getHeader().updatelabelLeft();
-            }else if (flag < boom_num){
+            } else if (flag < boom_num) {
                 flag++;
                 arrayPutFlag[i][j] = true;
                 arrayButton[i][j].setNumber(9);
@@ -167,24 +167,24 @@ public class World {
         }
     }
 
-    public boolean verifyWinGame(){
+    public boolean verifyWinGame() {
         int numberOfUnopen = 0;
-        for(int i = 0; i < arrayBoolean.length; i++){
-            for(int j = 0; j < arrayBoolean[i].length; j++){
-                if(!arrayBoolean[i][j]){
+        for (int i = 0; i < arrayBoolean.length; i++) {
+            for (int j = 0; j < arrayBoolean[i].length; j++) {
+                if (!arrayBoolean[i][j]) {
                     numberOfUnopen++;
                 }
             }
         }
-        if(numberOfUnopen == boom_num)
+        if (numberOfUnopen == boom_num)
             return true;
         else
             return false;
     }
 
-    public void createArrayBoom(int boom_num, int width, int height){
-        int count  = 0;
-        while(count < boom_num){
+    public void createArrayBoom(int boom_num, int width, int height) {
+        int count = 0;
+        while (count < boom_num) {
             int locationX = rd.nextInt(width);
             int locationY = rd.nextInt(height);
 
@@ -192,9 +192,9 @@ public class World {
                 arrayBoom[locationX][locationY] = -1;
                 count = 0;
 
-                for(int i = 0; i < arrayBoom.length; i++){
-                    for(int j = 0; j < arrayBoom[i].length; j++){
-                        if(arrayBoom[i][j]==-1){
+                for (int i = 0; i < arrayBoom.length; i++) {
+                    for (int j = 0; j < arrayBoom[i].length; j++) {
+                        if (arrayBoom[i][j] == -1) {
                             count++;
                         }
                     }
@@ -203,17 +203,17 @@ public class World {
         }
     }
 
-    public void fillNumber(){
-        for(int i = 0; i < arrayBoom.length; i++){
-            for(int j  = 0; j < arrayBoom[i].length; j++){
-                if(arrayBoom[i][j] == 0){
+    public void fillNumber() {
+        for (int i = 0; i < arrayBoom.length; i++) {
+            for (int j = 0; j < arrayBoom[i].length; j++) {
+                if (arrayBoom[i][j] == 0) {
                     int count = 0;
-                    for(int l = i - 1; l <= i + 1; l++){
-                        for(int k = j - 1; k <= j + 1; k++){
-                            if(l>=0 && l<=arrayBoom.length-1 && k>=0 && k<=arrayBoom[i].length-1)
-                            if(arrayBoom[l][k] == -1){
-                                count++;
-                            }
+                    for (int l = i - 1; l <= i + 1; l++) {
+                        for (int k = j - 1; k <= j + 1; k++) {
+                            if (l >= 0 && l <= arrayBoom.length - 1 && k >= 0 && k <= arrayBoom[i].length - 1)
+                                if (arrayBoom[l][k] == -1) {
+                                    count++;
+                                }
                         }
                     }
                     arrayBoom[i][j] = count;
@@ -222,10 +222,10 @@ public class World {
         }
     }
 
-    public void fullTrue(){
-        for(int i = 0; i < arrayBoolean.length; i++){
-            for(int j = 0; j < arrayBoolean[i].length; j++){
-                if(!arrayBoolean[i][j]){
+    public void fullTrue() {
+        for (int i = 0; i < arrayBoolean.length; i++) {
+            for (int j = 0; j < arrayBoolean[i].length; j++) {
+                if (!arrayBoolean[i][j]) {
                     arrayBoolean[i][j] = true;
                 }
             }
@@ -248,11 +248,11 @@ public class World {
         this.arrayBoom = arrayBoom;
     }
 
-     public boolean[][] getArrayBoolean(){
+    public boolean[][] getArrayBoolean() {
         return arrayBoolean;
-     }
+    }
 
-    public void setArrayBoolean(boolean[][] arrayBoolean){
+    public void setArrayBoolean(boolean[][] arrayBoolean) {
         this.arrayBoolean = arrayBoolean;
     }
 
@@ -311,7 +311,5 @@ public class World {
     public void setBoom_num(int boom_num) {
         this.boom_num = boom_num;
     }
-    
-    
-    
+
 }

@@ -32,23 +32,23 @@ public class SmileButton extends JButton {
         switch (stage) {
             case win:
                 g.drawImage(gp.getGame().getData().getListImage().get("smileWin"), 0, 0, getPreferredSize().width,
-                getPreferredSize().height, null);
+                        getPreferredSize().height, null);
                 break;
             case lose:
                 g.drawImage(gp.getGame().getData().getListImage().get("smileLose"), 0, 0, getPreferredSize().width,
-                getPreferredSize().height, null);
+                        getPreferredSize().height, null);
                 break;
             case press:
                 g.drawImage(gp.getGame().getData().getListImage().get("smilePress"), 0, 0, getPreferredSize().width,
-                getPreferredSize().height, null);
+                        getPreferredSize().height, null);
                 break;
             case wow:
                 g.drawImage(gp.getGame().getData().getListImage().get("smilePressPlay"), 0, 0, getPreferredSize().width,
-                getPreferredSize().height, null);
+                        getPreferredSize().height, null);
                 break;
             case now:
                 g.drawImage(gp.getGame().getData().getListImage().get("smile"), 0, 0, getPreferredSize().width,
-                getPreferredSize().height, null);
+                        getPreferredSize().height, null);
                 break;
             default:
                 break;
@@ -70,5 +70,5 @@ public class SmileButton extends JButton {
     public void setStage(int stage) {
         this.stage = stage;
     }
-    
+
 }

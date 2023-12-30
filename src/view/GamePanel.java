@@ -62,7 +62,7 @@ public class GamePanel extends JPanel implements MouseListener {
         for (int i = 0; i < arrayButton.length; i++) {
             for (int j = 0; j < arrayButton[i].length; j++) {
                 if (e.getButton() == MouseEvent.BUTTON1 && e.getSource() == arrayButton[i][j]
-                && !world.getArrayPutFlag()[i][j]) {
+                        && !world.getArrayPutFlag()[i][j]) {
                     if (!getHeader().getTime().isRunning()) {
                         getHeader().getTime().start();
                     }
@@ -88,7 +88,7 @@ public class GamePanel extends JPanel implements MouseListener {
                             getHeader().getIcon().repaint();
                             GameWon gw = new GameWon(cols, rows, boom_num);
                             int option = JOptionPane.showConfirmDialog(this, "You win, play again?", "Winner",
-                                    JOptionPane.YES_NO_OPTION,delay);
+                                    JOptionPane.YES_NO_OPTION, delay);
                             if (option == JOptionPane.YES_OPTION) {
                                 gw.dispose();
                                 gf.setVisible(false);
