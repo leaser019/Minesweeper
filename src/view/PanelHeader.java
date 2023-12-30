@@ -120,7 +120,7 @@ public class PanelHeader extends JPanel {
 
     public void updatelabelRight() {
         if (nowTime > 999) {
-            labelRight.setS("infi");
+            labelRight.setS("iii");
         } else {
             String cTime = String.valueOf(nowTime);
             if (cTime.length() == 1) {
