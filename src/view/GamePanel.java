@@ -55,13 +55,14 @@ public class GamePanel extends JPanel implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
+        int delay = 3000;
         getHeader().getIcon().setStage(SmileButton.wow);
         getHeader().getIcon().repaint();
         Button[][] arrayButton = panelPlay.getArrayButton();
         for (int i = 0; i < arrayButton.length; i++) {
             for (int j = 0; j < arrayButton[i].length; j++) {
                 if (e.getButton() == MouseEvent.BUTTON1 && e.getSource() == arrayButton[i][j]
-                        && !world.getArrayPutFlag()[i][j]) {
+                && !world.getArrayPutFlag()[i][j]) {
                     if (!getHeader().getTime().isRunning()) {
                         getHeader().getTime().start();
                     }
@@ -70,26 +71,28 @@ public class GamePanel extends JPanel implements MouseListener {
                             getHeader().getTime().stop();
                             getHeader().getIcon().setStage(SmileButton.lose);
                             getHeader().getIcon().repaint();
+                            GameOver go = new GameOver(cols, rows, boom_num);
                             int option = JOptionPane.showConfirmDialog(this, "You lose,play again?", "Notification",
                                     JOptionPane.YES_NO_OPTION);
                             if (option == JOptionPane.YES_OPTION) {
                                 gf.setVisible(false);
+                                go.dispose();
                                 new GameFrame(cols, rows, boom_num);
                             } else {
+                                new GameOver(cols, rows, boom_num);
                                 world.fullTrue();
                             }
                         } else if (world.isLose()) {
                             getHeader().getTime().stop();
                             getHeader().getIcon().setStage(SmileButton.win);
                             getHeader().getIcon().repaint();
-
+                            GameWon gw = new GameWon(cols, rows, boom_num);
                             int option = JOptionPane.showConfirmDialog(this, "You win, play again?", "Winner",
-                                    JOptionPane.YES_NO_OPTION);
-
+                                    JOptionPane.YES_NO_OPTION,delay);
                             if (option == JOptionPane.YES_OPTION) {
-                                new GameWon(cols, rows, boom_num);
-                                // gf.setVisible(false);
-                                // new GameFrame(cols, rows, boom_num);
+                                gw.dispose();
+                                gf.setVisible(false);
+                                new GameFrame(cols, rows, boom_num);
                             }
                         }
                     }
