@@ -42,32 +42,12 @@
 
 ### Installation :dart:
 
-1. Open the terminal on your IDE
-2. Clone the repo
-   ```sh
-   git clone https://github.com/congbangitiu/Battleship-Remastered.git
-   ```
-3. Check the file status
-   ```sh
-   git status
-   ```
-4. Change branch
-   ```sh
-   git checkout 'branch_name'
-   ```
+
 
 ### Motivation :mechanical_arm:
 
 <div style="text-align:justify">
 
-Motivation is what drives us to succeed in life, and when it comes to computer science, algorithms & data structures
-provide the necessary tools to achieve that success. The classic game of Battleship relies heavily on these concepts as
-players must efficiently search through a grid of potential targets while maximizing their chances of hitting the
-opponent's ships. Optimization is key in this game, as slow searching can mean the difference between victory and
-defeat. This is where algorithms come into play - by implementing sophisticated searching techniques such as binary
-search or A* search, players can quickly traverse the board and locate enemy ships with minimal effort. Likewise, data
-structures like hash tables assist in storing player moves for easy retrieval later on. In combining these methods with
-strategic planning and intuition, players can become masters of modern-day Battleship strategy.
 
 </div>
 
@@ -75,18 +55,15 @@ strategic planning and intuition, players can become masters of modern-day Battl
 
 | Order | Task                                                              |  Assignee  | Contribution |
 |:------|:------------------------------------------------------------------|:----------:|:------------:|
-| 1     | Player class, Menu state, Project Management                      | Cong Bang  |     20%      |
-| 2     | Multi-player State, Single player state, Statistics state         |  Minh Vu   |     20%      |
-| 3     | New map state, Win state calling, Finding assets                  | Quang Dieu |     20%      |
-| 4     | Animation class, Button class, Ship class, Sketch, Draw, Swap map |   Anh Tu   |     20%      |
-| 5     | Github Management, Bot class, Instruction state                   |  Nhat Huy  |     20%      |
+| 1     |                                                                   | Minh Khang |     33%      |
+| 2     |                                                                   |Trong Nguyen|     33%      |
+| 3     |                                                                   |   Gia An   |     33%      |
+
 
 <br />
 
 ## Techniques <a name="Techniques"></a>:joystick:
 
-- Language: [JavaScript](https://www.javascript.com)
-- Library: [p5.js](https://p5js.org)
 
 <br />
 
@@ -148,12 +125,7 @@ strategic planning and intuition, players can become masters of modern-day Battl
 
 <div style="text-align:justify">
 
-We would want to express our gratitude to Dr. Tran Thanh Tung for providing us with the chance to participate in this
-project and apply what we learned in theory into practice. This project's learning curve was steep, but it was well
-worth it for all of us. We have learned more about interface technologies to construct a functioning application that
-interacts with our project. Sir, we want to thank you again for all the hard work and expertise that you have put into
-your teaching. We'll make sure that all we've learned doesn't go to waste, and that we can master them better from now
-on :heart:
+
 
 </div>
 
@@ -161,31 +133,11 @@ on :heart:
 
 ## References<a name="References">  :eye::tongue::eye:
 
-1. [danielrzhang](https://github.com/danielrzhang/Tank-Buster.git)
-2. [veykos](https://github.com/veykos/Battleships.git)
-3. [abdullahjamal1](https://github.com/abdullahjamal1/battleshipBoardGame.git)
-4. [Janekk](https://github.com/Janekk/Battleships.git)
-5. [billmei](https://github.com/billmei/battleboat.git)
 
 <br />
 
 <p align="right"><a href="#top">Back to top ↑</a></p>
 
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/congbangitiu/Battleship-Remastered.svg?style=for-the-badge
 
-[contributors-url]: https://github.com/congbangitiu/Battleship-Remastered/graphs/contributors
 
-[forks-shield]: https://img.shields.io/github/forks/congbangitiu/Battleship-Remastered.svg?style=for-the-badge
-
-[forks-url]: https://github.com/congbangitiu/Battleship-Remastered/network/members
-
-[stars-shield]: https://img.shields.io/github/stars/congbangitiu/Battleship-Remastered.svg?style=for-the-badge
-
-[stars-url]: https://github.com/congbangitiu/Battleship-Remastered/stargazers
-
-[issues-shield]: https://img.shields.io/github/issues/congbangitiu/Battleship-Remastered.svg?style=for-the-badge
-
-[issues-url]: https://github.com//congbangitiu/Battleship-Remastered/issues
