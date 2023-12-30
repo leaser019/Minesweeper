@@ -62,7 +62,7 @@ public class LoadData {
         listImage.put("7", image.getSubimage(91, 0, 13, 23));
         listImage.put("8", image.getSubimage(104, 0, 13, 23));
         listImage.put("9", image.getSubimage(117, 0, 13, 23));
-        listImage.put("infi", image.getSubimage(130, 0, 13, 23));
+        listImage.put("i", image.getSubimage(130, 0, 13, 23));
         listImage.put("stick", image.getSubimage(140, 49, 7, 7));
     }
 
