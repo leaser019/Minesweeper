@@ -4,17 +4,6 @@
 <h1 align="center">- ALGORITHM & DATA STRUCTURES COURSE PROJECT -
     MINESWEEPER GAME </h1>
 
-<!-- TABLE OF CONTENTS -->
-
-# Table of contents :round_pushpin:
-
-1. [Introduction](#Introduction)
-2. [Techniques](#Techniques)
-3. [Features](#Features)
-4. [Challenges](#Challenges)
-5. [Acknowledgments](#Acknowledgments)
-6. [References](#References)
-
 ## Introduction <a name="Introduction"></a> :bricks:
 
 <div align="center">
