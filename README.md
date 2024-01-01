@@ -44,7 +44,7 @@ Creating an offline Minesweeper game is driven by several motivations. It's an o
 
 | Order | Task                                                                                          |  Assignee  | Contribution |
 |:------|:----------------------------------------------------------------------------------------------|:----------:|:------------:|
-| 1     | Coding UI/UX, Creating Graphic, Fixing Bugs, Make Report, Write README                        | Minh Khang |     33%      |
+| 1     | Coding UI/UX, Creating Graphic, Fixing Bugs, Write Report, Write README                       | Minh Khang |     33%      |
 | 2     | Coding Game Logic, Solve Notification of the Game, Fixing Bugs, Draw UML, Make Slide          |Trong Nguyen|     33%      |
 | 3     | Coding Game Interactive, Fixing Bugs, Present Game Idea, Make Report, Make Slide              |   Gia An   |     33%      |
 
