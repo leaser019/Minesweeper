@@ -75,7 +75,7 @@ Creating an offline Minesweeper game is driven by several motivations. It's an o
 ## Features <a name="Features"></a>:joystick:
 ### 1. Class Diagram
 <div align="center">
-    <img src="./img/classDiagram.png" alt="drawing">
+    <img src="./img/forReadMe/classDiagram.png" alt="drawing">
 </div>
 <br />
 
