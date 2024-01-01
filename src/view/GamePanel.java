@@ -99,15 +99,17 @@ public class GamePanel extends JPanel implements MouseListener {
                 } else if (e.getButton() == MouseEvent.BUTTON3 && e.getSource() == arrayButton[i][j]) {
                     world.putFlag(i, j);
                 }
+                GameOver go;
                 if (e.getClickCount() == 2 && e.getSource() == arrayButton[i][j] && world.getArrayBoolean()[i][j]) {
                     if (!world.clickDouble(i, j)) {
                         int option = JOptionPane.showConfirmDialog(this, "You lose, play again?", "Loser",
                                 JOptionPane.YES_NO_OPTION);
                         if (option == JOptionPane.YES_OPTION) {
-                            new GameOver(cols, rows, boom_num);
-                            // gf.setVisible(false);
-                            // new GameFrame(cols, rows, boom_num);
+                            gf.setVisible(false);
+                            new GameFrame(cols, rows, boom_num);
                         } else {
+                            go = new GameOver(cols, rows, boom_num);
+                            go.dispose();
                             world.fullTrue();
                         }
                     }

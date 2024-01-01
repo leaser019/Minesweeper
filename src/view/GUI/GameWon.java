@@ -36,7 +36,6 @@ public class GameWon extends JFrame {
         setIconImage(Toolkit.getDefaultToolkit().getImage(
                 "img\\icon.png"));
         setTitle("Minesweeper");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(585, 600);
         setLocationRelativeTo(null);
         try {
