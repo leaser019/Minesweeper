@@ -78,8 +78,12 @@ Creating an offline Minesweeper game is driven by several motivations. It's an o
     <img src="./img/forReadMe/classDiagram.png" alt="drawing">
 </div>
 <br />
-
-### 2. Activity Diagram
+### 2. User Case Diagram
+<div align="center">
+    <img src="./img/forReadMe/UserCaseDiagram.png" alt="drawing">
+</div>
+<br />
+### 3. Activity Description
 
  #### Start Game
 - User initiates the game.
